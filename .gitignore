@@ -1,4 +1,4 @@
-data/swmh/
-data/kaggle/
+data/
 checkpoints/
 venv/
+__pycache__/
