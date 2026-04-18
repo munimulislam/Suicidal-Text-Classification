@@ -34,7 +34,7 @@ Raw data files are gitignored and must be downloaded locally.
 ## Setup
 
 ```bash
-git clone https://github.com/<your-username>/DL-Suicidal-Text-Classification.git
+git clone https://github.com/munimulislam/DL-Suicidal-Text-Classification.git
 cd DL-Suicidal-Text-Classification
 
 python -m venv venv
