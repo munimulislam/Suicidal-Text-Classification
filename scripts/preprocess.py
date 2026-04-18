@@ -11,7 +11,8 @@ import random
 from sklearn.utils.class_weight import compute_class_weight
 from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
-from config import SEED, KAGGLE, SWMH, KAGGLE_CSV, SWMH_TRAIN_CSV, SWMH_TEST_CSV, SWMH_VAL_CSV, PROCESSED_DIR
+from config import (SEED, KAGGLE, SWMH, KAGGLE_CSV, SWMH_TRAIN_CSV, SWMH_TEST_CSV, SWMH_VAL_CSV, PROCESSED_DIR, 
+                    KAGGLE_LABEL_MAP, SWMH_LABEL_MAP)
 
 URL_RE = re.compile(r"http\S+|www\.\S+|https\S+")
 MENTION_RE = re.compile(r"@\w+")
@@ -23,19 +24,7 @@ EMAIL_RE = re.compile(r"\S+@\S+")
 MULTISPACE = re.compile(r"\s+")
 NON_PRINT = re.compile(r"[^\x09\x0A\x0D\x20-\x7E]")
 REPEAT_CHR = re.compile(r"(.)\1{2,}")
-
-KAGGLE_LABEL_MAP = {
-    "suicide": 1,
-    "non-suicide": 0,
-}
-
-SWMH_LABEL_MAP = {
-    "self.SuicideWatch": 0,
-    "self.depression": 1,
-    "self.Anxiety": 2,
-    "self.bipolar": 3,
-    "self.offmychest": 4,
-}
+PLACEHOLDER_RE = re.compile(r'<(url|email|user)>', re.IGNORECASE)
 
 _STOPWORDS   = None
 _LEMMATIZER  = None
@@ -86,6 +75,7 @@ def lemmatize_txt(text: str) -> str:
     stop, lem = _init_nltk_lazy()
     from nltk.tokenize import word_tokenize
 
+    text = PLACEHOLDER_RE.sub('', text)
     tokens = word_tokenize(text.lower())
     tokens = [lem.lemmatize(t) for t in tokens if t.isalpha() and t not in stop and len(t) > 2]
 

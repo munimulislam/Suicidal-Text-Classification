@@ -1,0 +1,36 @@
+{
+  "model": "tfidf_lr",
+  "dataset": "kaggle",
+  "val_metrics": {
+    "accuracy": 0.9385020767272565,
+    "macro_f1": 0.938489825653815,
+    "weighted_f1": 0.9385084736485155,
+    "macro_precision": 0.9384495823623242,
+    "macro_recall": 0.9386320576928511,
+    "mcc": 0.8770816210733352,
+    "auc_roc": 0.9830559337708445,
+    "fnr": 0.0674186778593914
+  },
+  "test_metrics": {
+    "accuracy": 0.9400205439685588,
+    "macro_f1": 0.9400108931956628,
+    "weighted_f1": 0.9400272383427156,
+    "macro_precision": 0.9399854526976992,
+    "macro_recall": 0.9401819408438827,
+    "mcc": 0.880167371609622,
+    "auc_roc": 0.9841058064654141,
+    "fnr": 0.06733123469744666
+  },
+  "tfidf_params": {
+    "ngram_range": "(1,2)",
+    "max_features": 100000,
+    "min_df": 2,
+    "sublinear_tf": true
+  },
+  "lr_params": {
+    "C": 1.0,
+    "class_weight": "balanced",
+    "solver": "saga",
+    "max_iter": 1000
+  }
+}

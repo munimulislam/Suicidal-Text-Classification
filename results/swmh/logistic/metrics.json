@@ -1,0 +1,36 @@
+{
+  "model": "tfidf_lr",
+  "dataset": "swmh",
+  "val_metrics": {
+    "accuracy": 0.6674641148325359,
+    "macro_f1": 0.6787559156532794,
+    "weighted_f1": 0.6691668389881195,
+    "macro_precision": 0.6775122062787895,
+    "macro_recall": 0.689885036764535,
+    "mcc": 0.578656482711366,
+    "auc_roc": 0.8983755450956146,
+    "fnr": 0.31011496323546495
+  },
+  "test_metrics": {
+    "accuracy": 0.656930126002291,
+    "macro_f1": 0.6687350557995426,
+    "weighted_f1": 0.6579198434648369,
+    "macro_precision": 0.6662435154113494,
+    "macro_recall": 0.6806405686842217,
+    "mcc": 0.5659337078523345,
+    "auc_roc": 0.8953794747428672,
+    "fnr": 0.31935943131577826
+  },
+  "tfidf_params": {
+    "ngram_range": "(1,2)",
+    "max_features": 100000,
+    "min_df": 2,
+    "sublinear_tf": true
+  },
+  "lr_params": {
+    "C": 1.0,
+    "class_weight": "balanced",
+    "solver": "saga",
+    "max_iter": 1000
+  }
+}
