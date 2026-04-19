@@ -5,72 +5,11 @@ import random
 import json
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import (
-    accuracy_score, f1_score, precision_score,
-    recall_score, roc_auc_score,
-    matthews_corrcoef, confusion_matrix,
-    ConfusionMatrixDisplay)
-import matplotlib.pyplot as plt
 import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from config import SEED, KAGGLE, SWMH, KAGGLE_PROCESSED, SWMH_PROCESSED, RESULTS_DIR, KAGGLE_LABELS, SWMH_LABELS
-
-def compute_metrics(y_true, y_pred, y_prob, num_labels):
-    metrics = {}
-    metrics['accuracy'] = accuracy_score(y_true, y_pred)
-    metrics['macro_f1'] = f1_score(y_true, y_pred, average='macro')
-    metrics['weighted_f1'] = f1_score(y_true, y_pred, average='weighted')
-    metrics['macro_precision'] = precision_score(y_true, y_pred, average='macro', zero_division=0)
-    metrics['macro_recall'] = recall_score(y_true, y_pred, average='macro', zero_division=0)
-    metrics['mcc'] = matthews_corrcoef(y_true, y_pred)
-
-    if num_labels == 2:
-        metrics['auc_roc'] = roc_auc_score(y_true, y_prob[:, 1])
-    else:
-        metrics['auc_roc'] = roc_auc_score(y_true, y_prob, multi_class='ovr', average='macro')
-
-    if num_labels == 2:
-        cm = confusion_matrix(y_true, y_pred)
-        fn = cm[1, 0]
-        tp = cm[1, 1]
-        metrics['fnr'] = fn / (fn + tp) if (fn + tp) > 0 else 0.0
-    else:
-        cm = confusion_matrix(y_true, y_pred)
-        fnr_per_class = []
-
-        for i in range(num_labels):
-            tp = cm[i, i]
-            fn = cm[i, :].sum() - tp
-            fnr_per_class.append(fn / (fn + tp) if (fn + tp) > 0 else 0.0)
-            
-        metrics['fnr'] = np.mean(fnr_per_class)
-
-    return metrics
-
-
-def save_confusion_matrix(y_true, y_pred, labels, out_path):
-    cm   = confusion_matrix(y_true, y_pred)
-    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=labels)
-
-    _, ax = plt.subplots(figsize=(8, 6))
-    disp.plot(ax=ax, cmap='Blues', colorbar=False)
-
-    plt.title('Confusion Matrix — TF-IDF + Logistic Regression')
-    plt.tight_layout()
-    plt.savefig(out_path, dpi=300)
-    plt.close()
-
-    print(f"Confusion matrix saved : {out_path}")
-
-
-def print_metrics(metrics: dict):
-    print(f"\n  {'Metric':<20} {'Value':>8}")
-    print(f"  {'-'*30}")
-
-    for k, v in metrics.items():
-        print(f"  {k:<20} {v:>8.4f}")
-
+from utils.metrics_utils import compute_metrics, save_confusion_matrix, print_metrics
 
 def run_logistic(dataset_name: str):
     print(f"\n{'='*60}")
@@ -150,7 +89,9 @@ def run_logistic(dataset_name: str):
     print(f"\n  Metrics saved at: {metrics_path}")
 
     labels = KAGGLE_LABELS if dataset_name == KAGGLE else SWMH_LABELS
-    save_confusion_matrix(y_test, y_test_pred, labels, results_dir / "confusion_matrix.png")
+    save_confusion_matrix(y_test, y_test_pred, labels, 
+                          'Confusion Matrix — TF-IDF + Logistic Regression', 
+                          results_dir / "confusion_matrix.png")
 
     print(f"Macro F1: {test_metrics['macro_f1']:.4f}")
     print(f"AUC-ROC: {test_metrics['auc_roc']:.4f}")
@@ -172,11 +113,7 @@ if __name__ == "__main__":
     np.random.seed(SEED)
 
     args = parse_args()
+    datasets = [args.dataset] if args.dataset else [KAGGLE, SWMH]
 
-    if args.dataset == KAGGLE:
-        run_logistic(KAGGLE)
-    elif args.dataset == SWMH:
-        run_logistic(SWMH)
-    else:
-        run_logistic(KAGGLE)
-        run_logistic(SWMH)
+    for ds in datasets:
+        run_logistic(ds)

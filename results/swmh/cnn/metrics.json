@@ -1,0 +1,29 @@
+{
+  "model": "cnn",
+  "dataset": "swmh",
+  "test_metrics": {
+    "accuracy": 0.6355479190530737,
+    "macro_f1": 0.6508885747908917,
+    "weighted_f1": 0.6343044690214531,
+    "macro_precision": 0.6493752026054391,
+    "macro_recall": 0.6726435801910278,
+    "mcc": 0.5474568422341511,
+    "auc_roc": 0.885692958410558,
+    "fnr": 0.3273564198089722
+  },
+  "hyperparams": {
+    "embed_dim": 100,
+    "max_seq_len": 256,
+    "cnn_filters": 128,
+    "kernel_sizes": [
+      2,
+      3,
+      4
+    ],
+    "dropout": 0.5,
+    "batch_size": 64,
+    "lr": 0.001,
+    "epochs_run": 6,
+    "patience": 3
+  }
+}

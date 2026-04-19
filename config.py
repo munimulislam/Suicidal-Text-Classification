@@ -8,6 +8,7 @@ ROOT_DIR = Path(__file__).parent.resolve()
 DATA_DIR = ROOT_DIR / 'data'
 PROCESSED_DIR = DATA_DIR / "processed"
 RESULTS_DIR = ROOT_DIR / 'results'
+CHECKPOINT_DIR = ROOT_DIR / 'checkpoints'
 
 KAGGLE_DATA_DIR = DATA_DIR / KAGGLE
 SWMH_DATA_DIR = DATA_DIR / SWMH
@@ -33,3 +34,5 @@ SWMH_LABEL_MAP = {
     "self.bipolar": 3,
     "self.offmychest": 4,
 }
+
+GLOVE_DIR = DATA_DIR / 'glove'

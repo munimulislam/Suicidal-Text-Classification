@@ -1,0 +1,29 @@
+{
+  "model": "cnn",
+  "dataset": "kaggle",
+  "test_metrics": {
+    "accuracy": 0.9481934705908625,
+    "macro_f1": 0.9481830847156558,
+    "weighted_f1": 0.9481988437250387,
+    "macro_precision": 0.9481410010461061,
+    "macro_recall": 0.9483269660663061,
+    "mcc": 0.8964679478239432,
+    "auc_roc": 0.988075203194601,
+    "fnr": 0.05788737320741518
+  },
+  "hyperparams": {
+    "embed_dim": 100,
+    "max_seq_len": 256,
+    "cnn_filters": 128,
+    "kernel_sizes": [
+      2,
+      3,
+      4
+    ],
+    "dropout": 0.5,
+    "batch_size": 64,
+    "lr": 0.001,
+    "epochs_run": 5,
+    "patience": 3
+  }
+}
