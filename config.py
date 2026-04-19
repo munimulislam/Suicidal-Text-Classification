@@ -1,14 +1,21 @@
 from pathlib import Path
+import os
+
+IS_KAGGLE = os.path.exists('/kaggle/working')
 
 SEED = 42
 KAGGLE = 'kaggle'
 SWMH = 'swmh'
 
-ROOT_DIR = Path(__file__).parent.resolve()
-DATA_DIR = ROOT_DIR / 'data'
+INPUT_DIR = Path('/kaggle/input/datasets/mdmunimulislam/mh-crisis') if IS_KAGGLE else Path(__file__).parent.resolve()
+DATA_DIR = INPUT_DIR / 'data'
 PROCESSED_DIR = DATA_DIR / "processed"
-RESULTS_DIR = ROOT_DIR / 'results'
-CHECKPOINT_DIR = ROOT_DIR / 'checkpoints'
+
+OUT_DIR = Path('/kaggle/working/') if IS_KAGGLE else Path(__file__).parent.resolve()
+RESULTS_DIR = OUT_DIR / 'results'
+CHECKPOINT_DIR = OUT_DIR / 'checkpoints'
+RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
 
 KAGGLE_DATA_DIR = DATA_DIR / KAGGLE
 SWMH_DATA_DIR = DATA_DIR / SWMH
