@@ -1,0 +1,25 @@
+{
+  "model": "bilstm",
+  "dataset": "swmh",
+  "test_metrics": {
+    "accuracy": 0.6643757159221076,
+    "macro_f1": 0.6739722397545244,
+    "weighted_f1": 0.6654331508808667,
+    "macro_precision": 0.6723269209525803,
+    "macro_recall": 0.6794026459509345,
+    "mcc": 0.5698799985494736,
+    "auc_roc": 0.8952107755912614,
+    "fnr": 0.3205973540490657
+  },
+  "hyperparams": {
+    "embed_dim": 100,
+    "max_seq_len": 256,
+    "bilstm_hidden": 128,
+    "bilstm_layers": 2,
+    "dropout": 0.5,
+    "batch_size": 64,
+    "lr": 0.001,
+    "epochs_run": 6,
+    "patience": 3
+  }
+}

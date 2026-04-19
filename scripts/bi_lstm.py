@@ -1,5 +1,4 @@
 import sys
-import json
 import random
 import argparse
 import numpy as np
@@ -11,8 +10,8 @@ from torch.utils.data import DataLoader
 from torch.optim import Adam
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from config import SEED, KAGGLE, SWMH, KAGGLE_PROCESSED, SWMH_PROCESSED, RESULTS_DIR, CHECKPOINT_DIR, KAGGLE_LABELS, SWMH_LABELS
-from utils.dl_utils import load_glove_embeddings, build_vocab_and_matrix, tokenise, TextDataset, train_epoch, evaluate, save_loss_curve
-from utils.metrics_utils import print_metrics, save_confusion_matrix
+from utils.dl_utils import load_glove_embeddings, build_vocab_and_matrix, TextDataset, train_epoch, evaluate, load_data
+from utils.metrics_utils import print_metrics, save_confusion_matrix, save_loss_curve, save_result
 
 EMBED_DIM = 100
 MAX_VOCAB = 50_000
@@ -33,6 +32,7 @@ if torch.cuda.is_available():
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Device: {device}")
+
 
 class DotProductAttention(nn.Module):
     """
@@ -106,72 +106,38 @@ class BiLSTMClassifier(nn.Module):
         return self.fc(out)                 # (batch, num_labels)
 
 
-# ─────────────────────────────────────────────────────────────
-# Pipeline
-# ─────────────────────────────────────────────────────────────
-
 def run_bilstm(dataset_name: str):
-    """Full BiLSTM+Attention training and evaluation pipeline."""
-
     print(f"\n{'='*60}")
     print(f"  BiLSTM + Attention — {dataset_name.upper()}")
     print(f"{'='*60}")
 
-    # ── Paths ──────────────────────────────────────────────
     processed_dir = KAGGLE_PROCESSED if dataset_name == KAGGLE else SWMH_PROCESSED
     results_dir = RESULTS_DIR / dataset_name / "bilstm"
     ckpt_dir = CHECKPOINT_DIR / f"bilstm_{dataset_name}"
     results_dir.mkdir(parents=True, exist_ok=True)
     ckpt_dir.mkdir(parents=True, exist_ok=True)
 
-    # ── Load Data ──────────────────────────────────────────
-    print("\n[1/6] Loading data...")
-    train_df = pd.read_csv(processed_dir / "train.csv")
-    val_df = pd.read_csv(processed_dir / "val.csv")
-    test_df = pd.read_csv(processed_dir / "test.csv")
-
-    X_train_raw = train_df['text_lemmatized'].fillna('').astype(str).values
-    X_val_raw = val_df['text_lemmatized'].fillna('').astype(str).values
-    X_test_raw = test_df['text_lemmatized'].fillna('').astype(str).values
-
-    y_train = train_df['label'].values
-    y_val = val_df['label'].values
-    y_test = test_df['label'].values
-
-    num_labels = len(np.unique(y_train))
-    print(f"  Train: {len(train_df):,} | Val: {len(val_df):,} | Test: {len(test_df):,}")
-    print(f"  Classes: {num_labels} | Labels: {np.unique(y_train)}")
-
-    # ── GloVe + Vocab ──────────────────────────────────────
-    print("\n[2/6] Building vocabulary and embedding matrix...")
     glove = load_glove_embeddings(EMBED_DIM)
     vocab, embed = build_vocab_and_matrix(X_train_raw, glove, EMBED_DIM, MAX_VOCAB)
     del glove
 
-    # ── Tokenise ───────────────────────────────────────────
-    print("\n[3/6] Tokenising...")
-    X_train = tokenise(X_train_raw, vocab)
-    X_val = tokenise(X_val_raw, vocab)
-    X_test = tokenise(X_test_raw, vocab)
+    X_train, y_train, X_val, y_val, X_test, y_test = load_data(dataset_name, vocab)
 
-    # ── DataLoaders ────────────────────────────────────────
     train_loader = DataLoader(TextDataset(X_train, y_train), batch_size=BATCH_SIZE, shuffle=True, num_workers=0)
     val_loader = DataLoader(TextDataset(X_val, y_val), batch_size=BATCH_SIZE, shuffle=False, num_workers=0)
     test_loader = DataLoader(TextDataset(X_test, y_test), batch_size=BATCH_SIZE, shuffle=False, num_workers=0)
 
-    # ── Model ──────────────────────────────────────────────
-    print("\n[4/6] Building BiLSTM+Attention model...")
-    model = BiLSTMClassifier(len(vocab), embed, num_labels).to(device)
-
+    num_labels = len(np.unique(y_train))
     class_weights = np.load(str(processed_dir / "class_weights.npy"))
+
+    model = BiLSTMClassifier(len(vocab), embed, num_labels).to(device)
     criterion = nn.CrossEntropyLoss(weight=torch.tensor(class_weights, dtype=torch.float).to(device))
     optimizer = Adam(model.parameters(), lr=LR)
 
     n_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
     print(f"  Trainable parameters: {n_params:,}")
 
-    # ── Training ───────────────────────────────────────────
-    print("\n[5/6] Training...")
+    print("\nTraining...")
     best_val_f1 = 0.0
     patience_ctr = 0
     train_losses = []
@@ -204,13 +170,9 @@ def run_bilstm(dataset_name: str):
 
     save_loss_curve(train_losses, val_losses, title=f"BiLSTM+Attention Loss — {dataset_name.upper()}", out_path=results_dir / "loss_curve.png")
 
-    # ── Test Evaluation ────────────────────────────────────
-    print("\n[6/6] Evaluating best model on test set...")
-
+    print("\nEvaluating best model on test set...")
     model.load_state_dict(torch.load(ckpt_path, map_location=device))
     _, test_metrics, y_pred, _ = evaluate(model, test_loader, criterion, num_labels, device)
-
-    print("Test metrics:")
     print_metrics(test_metrics)
 
     labels = KAGGLE_LABELS if dataset_name == KAGGLE else SWMH_LABELS
@@ -221,7 +183,6 @@ def run_bilstm(dataset_name: str):
         out_path=results_dir / "confusion_matrix.png"
     )
 
-    # ── Save Metrics ───────────────────────────────────────
     results = {
         "model": "bilstm",
         "dataset": dataset_name,
@@ -239,25 +200,13 @@ def run_bilstm(dataset_name: str):
         }
     }
 
-    metrics_path = results_dir / "metrics.json"
-
-    with open(metrics_path, 'w') as f:
-        json.dump(results, f, indent=2)
+    result_path = results_dir / "metrics.json"
+    save_result(result_path, results)
         
-    print(f"  Metrics saved → {metrics_path}")
-
     print(f"\nBiLSTM complete — {dataset_name.upper()}")
-    print(f"Macro F1 : {test_metrics['macro_f1']:.4f}")
-    print(f"AUC-ROC : {test_metrics['auc_roc']:.4f}")
-    print(f"MCC : {test_metrics['mcc']:.4f}")
-    print(f"FNR : {test_metrics['fnr']:.4f}")
 
-    return test_metrics
+    return results
 
-
-# ─────────────────────────────────────────────────────────────
-# Entry Point
-# ─────────────────────────────────────────────────────────────
 
 def parse_args():
     parser = argparse.ArgumentParser(description='BiLSTM + Attention text classifier')
@@ -267,7 +216,7 @@ def parse_args():
 
 
 if __name__ == "__main__":
-    args       = parse_args()
+    args = parse_args()
     datasets = [args.dataset] if args.dataset else [KAGGLE, SWMH]
 
     for ds in datasets:

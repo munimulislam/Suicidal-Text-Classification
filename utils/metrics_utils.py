@@ -1,5 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from pathlib import Path
+import json
 
 from sklearn.metrics import (
     accuracy_score, f1_score, precision_score,
@@ -64,3 +66,21 @@ def print_metrics(metrics: dict):
 
     for k, v in metrics.items():
         print(f"  {k:<20} {v:>8.4f}")
+
+
+def save_loss_curve(train_losses: list, val_losses: list, title: str, out_path: Path):
+    plt.figure(figsize=(8, 5))
+    plt.plot(train_losses, label='Train Loss', marker='o', markersize=3)
+    plt.plot(val_losses, label='Val Loss', marker='o', markersize=3)
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.title(title)
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(out_path, dpi=300)
+    plt.close()
+    print(f"  Loss curve saved → {out_path}")
+
+def save_result(file_path: Path, result: dict):
+    with open(file_path, 'w') as f:
+        json.dump(result, f, indent=2)

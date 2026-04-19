@@ -1,0 +1,25 @@
+{
+  "model": "bilstm",
+  "dataset": "kaggle",
+  "test_metrics": {
+    "accuracy": 0.9522576035014069,
+    "macro_f1": 0.9522473564686116,
+    "weighted_f1": 0.9522623833673144,
+    "macro_precision": 0.952201278681881,
+    "macro_recall": 0.9523824170838475,
+    "mcc": 0.9045836776296948,
+    "auc_roc": 0.9898357082273519,
+    "fnr": 0.05342777194823365
+  },
+  "hyperparams": {
+    "embed_dim": 100,
+    "max_seq_len": 256,
+    "bilstm_hidden": 128,
+    "bilstm_layers": 2,
+    "dropout": 0.5,
+    "batch_size": 64,
+    "lr": 0.001,
+    "epochs_run": 5,
+    "patience": 3
+  }
+}

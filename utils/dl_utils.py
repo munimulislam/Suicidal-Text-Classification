@@ -1,4 +1,6 @@
+import random
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 from pathlib import Path
 import torch
@@ -6,12 +8,13 @@ import torch.nn as nn
 from torch.utils.data import Dataset
 import urllib.request
 import zipfile
-from config import GLOVE_DIR
+from config import SEED, GLOVE_DIR, KAGGLE, KAGGLE_PROCESSED, SWMH_PROCESSED
 from utils.metrics_utils import compute_metrics
+from torch.utils.data import DataLoader
 
-# ─────────────────────────────────────────────────────────────
-# GloVe
-# ─────────────────────────────────────────────────────────────
+random.seed(SEED)
+np.random.seed(SEED)
+torch.manual_seed(SEED)
 
 def setup_glove(dim: int = 100) -> Path:
     glove_dir = Path(GLOVE_DIR)
@@ -145,31 +148,32 @@ class TextDataset(Dataset):
         return self.sequences[idx], self.labels[idx]
 
 
-# ─────────────────────────────────────────────────────────────
-# Plotting
-# ─────────────────────────────────────────────────────────────
+def load_data(dataset_name: str, vocab):
+    ds_dir = KAGGLE_PROCESSED if dataset_name == KAGGLE else SWMH_PROCESSED
 
-def save_loss_curve(train_losses: list,
-                    val_losses: list,
-                    title: str,
-                    out_path: Path):
-    """Save training/validation loss curve as PNG."""
-    plt.figure(figsize=(8, 5))
-    plt.plot(train_losses, label='Train Loss', marker='o', markersize=3)
-    plt.plot(val_losses, label='Val Loss', marker='o', markersize=3)
-    plt.xlabel('Epoch')
-    plt.ylabel('Loss')
-    plt.title(title)
-    plt.legend()
-    plt.tight_layout()
-    plt.savefig(out_path, dpi=300)
-    plt.close()
-    print(f"  Loss curve saved → {out_path}")
+    train_df = pd.read_csv(ds_dir / "train.csv")
+    val_df = pd.read_csv(ds_dir / "val.csv")
+    test_df = pd.read_csv(ds_dir / "test.csv")
 
+    X_train_raw = train_df['text_lemmatized'].fillna('').astype(str).values
+    X_val_raw = val_df['text_lemmatized'].fillna('').astype(str).values
+    X_test_raw = test_df['text_lemmatized'].fillna('').astype(str).values
 
-# ─────────────────────────────────────────────────────────────
-# Training / Evaluation
-# ─────────────────────────────────────────────────────────────
+    y_train = train_df['label'].values
+    y_val = val_df['label'].values
+    y_test = test_df['label'].values
+
+    num_labels = len(np.unique(y_train))
+    print(f"  Train: {len(train_df):,} | Val: {len(val_df):,} | Test: {len(test_df):,}")
+    print(f"  Classes: {num_labels} | Labels: {np.unique(y_train)}")
+
+    print("\n[3/6] Tokenising...")
+    X_train = tokenise(X_train_raw, vocab)
+    X_val = tokenise(X_val_raw, vocab)
+    X_test = tokenise(X_test_raw, vocab)
+
+    return X_train, y_train, X_val, y_val, X_test, y_test
+
 
 def train_epoch(model: nn.Module,
                 loader,
@@ -219,9 +223,9 @@ def evaluate(model: nn.Module,
 
     with torch.no_grad():
         for X, y in loader:
-            X, y   = X.to(device), y.to(device)
+            X, y = X.to(device), y.to(device)
             logits = model(X)
-            loss   = criterion(logits, y)
+            loss = criterion(logits, y)
             total_loss += loss.item()
 
             probs = torch.softmax(logits, dim=1).cpu().numpy()
@@ -231,10 +235,10 @@ def evaluate(model: nn.Module,
             all_preds.extend(preds)
             all_labels.extend(y.cpu().numpy())
 
-    y_true   = np.array(all_labels)
-    y_pred   = np.array(all_preds)
-    y_prob   = np.array(all_probs)
+    y_true = np.array(all_labels)
+    y_pred = np.array(all_preds)
+    y_prob = np.array(all_probs)
     avg_loss = total_loss / len(loader)
-    metrics  = compute_metrics(y_true, y_pred, y_prob, num_labels)
+    metrics = compute_metrics(y_true, y_pred, y_prob, num_labels)
 
     return avg_loss, metrics, y_pred, y_prob
