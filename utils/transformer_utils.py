@@ -19,38 +19,21 @@ MODEL_REGISTRY = {
 
 
 class TransformerDataset(Dataset):
-    """
-    PyTorch Dataset for transformer fine-tuning.
-    Tokenises text on-the-fly using a HuggingFace tokeniser.
-    """
-
-    def __init__(self, texts: list, labels: list, tokenizer, max_len: int):
-        self.texts = texts
+    def __init__(self, encodings: dict, labels: list):
+        self.encodings = encodings
         self.labels = labels
-        self.tokenizer = tokenizer
-        self.max_len = max_len
 
     def __len__(self):
         return len(self.labels)
 
     def __getitem__(self, idx):
-        encoding = self.tokenizer(
-            self.texts[idx],
-            max_length=self.max_len,
-            padding="max_length",
-            truncation=True,
-            return_tensors="pt",
-        )
-
-        return {
-            "input_ids": encoding["input_ids"].squeeze(0),
-            "attention_mask": encoding["attention_mask"].squeeze(0),
-            "label": torch.tensor(self.labels[idx], dtype=torch.long),
-        }
+        item = {k: torch.tensor(v[idx]) for k, v in self.encodings.items()}
+        item["label"] = torch.tensor(self.labels[idx], dtype=torch.long)
+        return item
 
 
 def train_epoch(
-    model, loader, optimizer, scheduler, criterion, device: torch.device
+    model, loader, optimizer, scheduler, criterion, device: torch.device, scaler=None
 ) -> float:
     """
     One training epoch for transformer models.
@@ -66,14 +49,24 @@ def train_epoch(
         labels = batch["label"].to(device)
 
         optimizer.zero_grad()
-        outputs = model(input_ids=input_ids, attention_mask=attention_mask)
-        loss = criterion(outputs.logits, labels)
-        loss.backward()
 
-        # Gradient clipping — standard for transformer fine-tuning
-        nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+        if scaler is not None:
+            with torch.cuda.amp.autocast():
+                outputs = model(input_ids=input_ids, attention_mask=attention_mask)
+                loss = criterion(outputs.logits, labels)
 
-        optimizer.step()
+            scaler.scale(loss).backward()
+            scaler.unscale_(optimizer)
+            nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+            scaler.step(optimizer)
+            scaler.update()
+        else:
+            outputs = model(input_ids=input_ids, attention_mask=attention_mask)
+            loss = criterion(outputs.logits, labels)
+            loss.backward()
+            nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+            optimizer.step()
+
         scheduler.step()
         total_loss += loss.item()
 

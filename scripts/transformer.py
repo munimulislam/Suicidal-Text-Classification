@@ -42,11 +42,10 @@ from utils.metrics_utils import (
 )
 
 MAX_LEN = 256
-BATCH_SIZE = 16
+BATCH_SIZE = 32
 LR = 2e-5
 EPOCHS = 5
 PATIENCE = 2
-DROPOUT = 0.5
 
 random.seed(SEED)
 np.random.seed(SEED)
@@ -94,15 +93,33 @@ def run_transformer(model_name: str, dataset_name: str):
     print(f"Vocab size: {tokenizer.vocab_size:,}")
     print(f"Max length: {MAX_LEN}")
 
-    train_dataset = TransformerDataset(X_train, y_train.tolist(), tokenizer, MAX_LEN)
-    val_dataset = TransformerDataset(X_val, y_val.tolist(), tokenizer, MAX_LEN)
-    test_dataset = TransformerDataset(X_test, y_test.tolist(), tokenizer, MAX_LEN)
+    X_train_enc = tokenizer(
+        X_train, max_length=MAX_LEN, padding="max_length", truncation=True
+    )
+
+    X_val_enc = tokenizer(
+        X_val,
+        max_length=MAX_LEN,
+        padding="max_length",
+        truncation=True,
+    )
+
+    X_test_enc = tokenizer(
+        X_test,
+        max_length=MAX_LEN,
+        padding="max_length",
+        truncation=True,
+    )
+
+    train_dataset = TransformerDataset(X_train_enc, y_train.tolist())
+    val_dataset = TransformerDataset(X_val_enc, y_val.tolist())
+    test_dataset = TransformerDataset(X_test_enc, y_test.tolist())
 
     train_loader = DataLoader(
         train_dataset,
         batch_size=BATCH_SIZE,
         shuffle=True,
-        num_workers=2,
+        num_workers=4,
         pin_memory=torch.cuda.is_available(),
     )
 
@@ -110,7 +127,7 @@ def run_transformer(model_name: str, dataset_name: str):
         val_dataset,
         batch_size=BATCH_SIZE * 2,
         shuffle=False,
-        num_workers=2,
+        num_workers=4,
         pin_memory=torch.cuda.is_available(),
     )
 
@@ -118,7 +135,7 @@ def run_transformer(model_name: str, dataset_name: str):
         test_dataset,
         batch_size=BATCH_SIZE * 2,
         shuffle=False,
-        num_workers=2,
+        num_workers=4,
         pin_memory=torch.cuda.is_available(),
     )
 
@@ -154,9 +171,11 @@ def run_transformer(model_name: str, dataset_name: str):
     val_losses = []
     ckpt_path = ckpt_dir / "best_model.pt"
 
+    scaler = torch.cuda.amp.GradScaler() if torch.cuda.is_available() else None
+
     for epoch in range(1, EPOCHS + 1):
         tr_loss = train_epoch(
-            model, train_loader, optimizer, scheduler, criterion, device
+            model, train_loader, optimizer, scheduler, criterion, device, scaler=scaler
         )
 
         vl_loss, val_metrics, _, _ = evaluate(
