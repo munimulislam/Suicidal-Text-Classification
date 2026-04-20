@@ -1,0 +1,24 @@
+{
+  "model": "mentalbert",
+  "hf_model_id": "mental/mental-bert-base-uncased",
+  "dataset": "kaggle",
+  "test_metrics": {
+    "accuracy": 0.9805278906703586,
+    "macro_f1": 0.9805203343267572,
+    "weighted_f1": 0.9805285760529983,
+    "macro_precision": 0.9804896399030096,
+    "macro_recall": 0.9805572943082205,
+    "mcc": 0.9610469318299111,
+    "auc_roc": 0.9973781259433766,
+    "fnr": 0.02081147254284715
+  },
+  "hyperparams": {
+    "max_len": 256,
+    "batch_size": 32,
+    "lr": 2e-05,
+    "epochs_run": 5,
+    "patience": 2,
+    "warmup_steps": 2799,
+    "weight_decay": 0.01
+  }
+}
