@@ -1,0 +1,24 @@
+{
+  "model": "roberta",
+  "hf_model_id": "roberta-base",
+  "dataset": "kaggle",
+  "test_metrics": {
+    "accuracy": 0.991514447769193,
+    "macro_f1": 0.9915110342646694,
+    "weighted_f1": 0.9915146910479118,
+    "macro_precision": 0.9914848786408937,
+    "macro_recall": 0.9915412449958645,
+    "mcc": 0.9830261220207452,
+    "auc_roc": 0.999215956912352,
+    "fnr": 0.009706190975865687
+  },
+  "hyperparams": {
+    "max_len": 256,
+    "batch_size": 32,
+    "lr": 2e-05,
+    "epochs_run": 5,
+    "patience": 2,
+    "warmup_steps": 2799,
+    "weight_decay": 0.01
+  }
+}

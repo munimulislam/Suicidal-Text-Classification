@@ -1,0 +1,24 @@
+{
+  "model": "mentalbert",
+  "hf_model_id": "mental/mental-bert-base-uncased",
+  "dataset": "swmh",
+  "test_metrics": {
+    "accuracy": 0.712676594119893,
+    "macro_f1": 0.7243791619411823,
+    "weighted_f1": 0.7127052711961083,
+    "macro_precision": 0.720756871727813,
+    "macro_recall": 0.7362707768583496,
+    "mcc": 0.6363008278885883,
+    "auc_roc": 0.9225141341297565,
+    "fnr": 0.2637292231416503
+  },
+  "hyperparams": {
+    "max_len": 256,
+    "batch_size": 32,
+    "lr": 2e-05,
+    "epochs_run": 4,
+    "patience": 2,
+    "warmup_steps": 522,
+    "weight_decay": 0.01
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "model": "roberta",
+  "hf_model_id": "roberta-base",
+  "dataset": "swmh",
+  "test_metrics": {
+    "accuracy": 0.7172584956090111,
+    "macro_f1": 0.7270097073150902,
+    "weighted_f1": 0.7167473947356423,
+    "macro_precision": 0.7254627645621038,
+    "macro_recall": 0.730811433493729,
+    "mcc": 0.6364676421408177,
+    "auc_roc": 0.9206158711830357,
+    "fnr": 0.269188566506271
+  },
+  "hyperparams": {
+    "max_len": 256,
+    "batch_size": 32,
+    "lr": 2e-05,
+    "epochs_run": 5,
+    "patience": 2,
+    "warmup_steps": 522,
+    "weight_decay": 0.01
+  }
+}
