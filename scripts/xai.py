@@ -11,6 +11,8 @@ from collections import Counter
 import torch
 import torch.nn.functional as F
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
+import shap
+from lime.lime_text import LimeTextExplainer
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 

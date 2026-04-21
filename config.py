@@ -54,5 +54,5 @@ GLOVE_DIR = DATA_DIR / "glove"
 
 MAX_LEN = 256
 
-XAI_DIR = OUT_DIR / "xai"
+XAI_DIR = RESULTS_DIR / "xai"
 XAI_DIR.mkdir(parents=True, exist_ok=True)
