@@ -1,0 +1,24 @@
+{
+  "model": "distilbert",
+  "hf_model_id": "distilbert-base-uncased",
+  "dataset": "kaggle",
+  "test_metrics": {
+    "accuracy": 0.978473493814479,
+    "macro_f1": 0.9784660250402113,
+    "weighted_f1": 0.978474640101177,
+    "macro_precision": 0.9784230692951071,
+    "macro_recall": 0.9785249851175011,
+    "mcc": 0.9569480489855452,
+    "auc_roc": 0.99708344927235,
+    "fnr": 0.023871983210912908
+  },
+  "hyperparams": {
+    "max_len": 256,
+    "batch_size": 32,
+    "lr": 2e-05,
+    "epochs_run": 5,
+    "patience": 2,
+    "warmup_steps": 2799,
+    "weight_decay": 0.01
+  }
+}

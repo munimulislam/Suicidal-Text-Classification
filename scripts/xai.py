@@ -24,7 +24,7 @@ from config import (
     SWMH_PROCESSED,
     KAGGLE_LABELS,
     SWMH_LABELS,
-    CHECKPOINT_OUT_DIR,
+    CHECKPOINT_IN_DIR,
     XAI_DIR,
     MAX_LEN,
 )
