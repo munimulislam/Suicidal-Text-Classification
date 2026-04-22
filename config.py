@@ -18,7 +18,7 @@ PROCESSED_DIR = DATA_DIR / "processed"
 OUT_DIR = Path("/kaggle/working/") if IS_KAGGLE else Path(__file__).parent.resolve()
 RESULTS_DIR = OUT_DIR / "results"
 CHECKPOINT_IN_DIR = (
-    Path("/kaggle/input/models/mdmunimulislam/mh-crisis/pytorch/default/1/checkpoints")
+    Path("/kaggle/input/models/mdmunimulislam/mh-crisis/pytorch/default/2/checkpoints")
     if IS_KAGGLE
     else OUT_DIR / "checkpoints"
 )

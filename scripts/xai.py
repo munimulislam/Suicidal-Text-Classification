@@ -341,14 +341,6 @@ def run_lime(
     out_dir: Path,
 ):
 
-    try:
-        from lime.lime_text import LimeTextExplainer
-    except ImportError:
-        import subprocess
-
-        subprocess.run(["pip", "install", "lime", "-q"])
-        from lime.lime_text import LimeTextExplainer
-
     print(f"\n  Running LIME (num_samples=1000 for stability)...")
     out_dir.mkdir(parents=True, exist_ok=True)
 
