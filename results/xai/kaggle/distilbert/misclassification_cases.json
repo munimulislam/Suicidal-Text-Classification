@@ -1,0 +1,72 @@
+{
+  "false_negatives_missed_crises": [
+    {
+      "idx": 34,
+      "text": "I have no why so how can I face any how?What is the point of struggling to get out of this ditch when there is no light at the end of the tunnel?",
+      "true_label": "non-suicide",
+      "pred_label": "suicide",
+      "confidence": 0.8949422836303711,
+      "probs": [
+        0.8949422836303711,
+        0.1050577461719513
+      ]
+    },
+    {
+      "idx": 80,
+      "text": "Ok this is beyond a joke now!I've looked after my mother for many years, she died in November. Now I've been diagnosed with cancer and am undergoing pre-surgery chemo. As if that wasn't enough my dog (who I've had for 12 years) has lesions on his brain, likely cancerous. There's nothing they can do save for chemo, which I wouldn't put him through and can't afford anyway. Just how much does one person have to go through before they call it quits? Am I allowed to go now?",
+      "true_label": "non-suicide",
+      "pred_label": "suicide",
+      "confidence": 0.9968612194061279,
+      "probs": [
+        0.9968612194061279,
+        0.003138752421364188
+      ]
+    },
+    {
+      "idx": 162,
+      "text": "Exam today but I can't even get out of bed (mild venting)I've been struggling with self-confidence for a while now but no matter how much I put I can never achieve it. I just don't want to do this anymore, I hate it and I hate myself. I'm just not good enough for this. Yesterday was okay the day before that I was fine, stressed but fine. I've been in a relationship for almost a year and I'm still a shit gf. I cant believe him when he says that I make him happy or cheer him up because all I ever remember doing is just pissing him off. Sometimes I don't even believe him when he says \"I love you\"",
+      "true_label": "non-suicide",
+      "pred_label": "suicide",
+      "confidence": 0.9139835834503174,
+      "probs": [
+        0.9139835834503174,
+        0.08601640909910202
+      ]
+    }
+  ],
+  "false_positives_false_alarms": [
+    {
+      "idx": 28,
+      "text": "My Classmate got COVID. I need to self-isolate now. I don't want to die. Not yet. There's so much more stuff I wanna do. I'm sorry if this seems immature, posting on Reddit, but it's something I'd like to get off my chest.",
+      "true_label": "suicide",
+      "pred_label": "non-suicide",
+      "confidence": 0.7866037487983704,
+      "probs": [
+        0.21339628100395203,
+        0.7866037487983704
+      ]
+    },
+    {
+      "idx": 35,
+      "text": "I wont stop.. Steam train, souls from the city We know no bones from the grave Suppose I never cared much 'bout Who could be saved Beware the wolves and snakes Wrapped up tight beneath the shade You have a lonely one along the way out Who had no name We tread a line in our own lane It's a sit-down hallway And I don't feel I know what hope is What is this place? Take these things away from me They're useless bits I'll never need Stop my breath, so I'll be free I won't, I won't stop 'Til I found you",
+      "true_label": "suicide",
+      "pred_label": "non-suicide",
+      "confidence": 0.7646248936653137,
+      "probs": [
+        0.23537515103816986,
+        0.7646248936653137
+      ]
+    },
+    {
+      "idx": 86,
+      "text": "Hopefully no one needs me tonight.. Cuz if so I'm going to sleep. I should be up by 10 am and I'm taking tomorrow off so I'll contact anyone that needs me to. Goodnight my dear reddiitors",
+      "true_label": "suicide",
+      "pred_label": "non-suicide",
+      "confidence": 0.9630861878395081,
+      "probs": [
+        0.03691376373171806,
+        0.9630861878395081
+      ]
+    }
+  ]
+}

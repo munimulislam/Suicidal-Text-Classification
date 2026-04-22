@@ -1,0 +1,40 @@
+
+[SUICIDE]
+  All 3 methods agree: 2, are, baby, girl, guys, life, lost, me, movie, start
+  SHAP + LIME agree:   a, actual, and, anyone, be, brain, cared, cells, contact, customers
+  Top 15 by combined score:
+     1. u                    score=4.501 [SHAP, LIME, ATTN]
+     2. 2                    score=3.849 [SHAP, LIME, ATTN]
+     3. fill                 score=3.521 [SHAP, ATTN]
+     4. *                    score=2.927 [SHAP, ATTN]
+     5. movie                score=2.359 [SHAP, LIME, ATTN]
+     6. are                  score=2.290 [SHAP, LIME, ATTN]
+     7. me                   score=2.180 [SHAP, LIME, ATTN]
+     8. t                    score=2.017 [SHAP, LIME, ATTN]
+     9. pizza                score=1.799 [SHAP, LIME]
+    10. girl                 score=1.380 [SHAP, LIME, ATTN]
+    11. i                    score=1.355 [SHAP, LIME]
+    12. lost                 score=1.353 [SHAP, LIME, ATTN]
+    13. baby                 score=1.265 [SHAP, LIME, ATTN]
+    14. hope                 score=1.228 [SHAP, LIME]
+    15. er                   score=1.154 [SHAP, ATTN]
+
+[NON-SUICIDE]
+  All 3 methods agree: bangs, but, exist, go, i, joke, long, normal, now, this
+  SHAP + LIME agree:   30, a, afford, again, all, allowed, am, anyone, around, before
+  Top 15 by combined score:
+     1. go                   score=3.719 [SHAP, LIME, ATTN]
+     2. this                 score=3.558 [SHAP, LIME, ATTN]
+     3. exist                score=3.120 [SHAP, LIME, ATTN]
+     4. i                    score=3.027 [SHAP, LIME, ATTN]
+     5. normal               score=2.941 [SHAP, LIME, ATTN]
+     6. .                    score=2.237 [SHAP, ATTN]
+     7. long                 score=2.161 [SHAP, LIME, ATTN]
+     8. but                  score=2.127 [SHAP, LIME, ATTN]
+     9. joke                 score=1.962 [SHAP, LIME, ATTN]
+    10. quota                score=1.701 [SHAP, ATTN]
+    11. tion                 score=1.395 [SHAP, ATTN]
+    12. bangs                score=1.345 [SHAP, LIME, ATTN]
+    13. living               score=1.305 [SHAP, LIME]
+    14. universe             score=1.302 [SHAP, LIME]
+    15. is                   score=1.223 [SHAP, LIME]

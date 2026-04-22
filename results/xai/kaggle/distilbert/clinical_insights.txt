@@ -1,0 +1,40 @@
+
+[SUICIDE]
+  All 3 methods agree: 2, are, god, guys, hate, lost, my, that, this, u
+  SHAP + LIME agree:   10, a, and, anyone, baby, be, brain, by, cared, cells
+  Top 15 by combined score:
+     1. die                  score=3.454 [SHAP, LIME]
+     2. tonight              score=2.236 [SHAP, LIME]
+     3. *                    score=2.235 [SHAP, ATTN]
+     4. my                   score=2.084 [SHAP, LIME, ATTN]
+     5. 2                    score=2.016 [SHAP, LIME, ATTN]
+     6. i                    score=1.621 [SHAP, LIME]
+     7. hope                 score=1.521 [SHAP, LIME]
+     8. me                   score=1.436 [SHAP, LIME]
+     9. got                  score=1.418 [SHAP, LIME]
+    10. fill                 score=1.394 [SHAP, ATTN]
+    11. sleep                score=1.261 [SHAP, LIME]
+    12. to                   score=1.249 [SHAP, LIME]
+    13. so                   score=1.236 [SHAP, LIME]
+    14. want                 score=1.205 [SHAP, LIME]
+    15. no                   score=1.124 [SHAP, LIME]
+
+[NON-SUICIDE]
+  All 3 methods agree: get, go, have, i, me, myself, no, of, this, today
+  SHAP + LIME agree:   12, a, afford, all, any, anymore, at, bed, beyond, bipolar
+  Top 15 by combined score:
+     1. this                 score=4.768 [SHAP, LIME, ATTN]
+     2. no                   score=4.470 [SHAP, LIME, ATTN]
+     3. i                    score=4.425 [SHAP, LIME, ATTN]
+     4. today                score=2.930 [SHAP, LIME, ATTN]
+     5. '                    score=2.682 [SHAP, ATTN]
+     6. of                   score=2.572 [SHAP, LIME, ATTN]
+     7. struggling           score=2.308 [SHAP, LIME]
+     8. tunnel               score=2.119 [SHAP, LIME, ATTN]
+     9. long                 score=1.668 [SHAP, ATTN]
+    10. so                   score=1.619 [SHAP, LIME]
+    11. have                 score=1.445 [SHAP, LIME, ATTN]
+    12. exam                 score=1.401 [LIME, ATTN]
+    13. why                  score=1.212 [SHAP, LIME]
+    14. is                   score=1.184 [SHAP, LIME]
+    15. how                  score=1.137 [SHAP, LIME]

@@ -1,0 +1,296 @@
+{
+  "Anxiety": [
+    {
+      "token": ".",
+      "total_attention": 1.0235576666891575
+    },
+    {
+      "token": ",",
+      "total_attention": 0.16861948929727077
+    },
+    {
+      "token": "numb",
+      "total_attention": 0.1002984568476677
+    },
+    {
+      "token": "happiness",
+      "total_attention": 0.08969540894031525
+    },
+    {
+      "token": "mood",
+      "total_attention": 0.08196766674518585
+    },
+    {
+      "token": "alone",
+      "total_attention": 0.07266031205654144
+    },
+    {
+      "token": "suicidal",
+      "total_attention": 0.058009251952171326
+    },
+    {
+      "token": "me",
+      "total_attention": 0.053616516292095184
+    },
+    {
+      "token": "ych",
+      "total_attention": 0.05356922000646591
+    },
+    {
+      "token": "peace",
+      "total_attention": 0.048548996448516846
+    },
+    {
+      "token": "liver",
+      "total_attention": 0.04580022022128105
+    },
+    {
+      "token": "downed",
+      "total_attention": 0.04268467053771019
+    },
+    {
+      "token": "posts",
+      "total_attention": 0.038157522678375244
+    },
+    {
+      "token": "your",
+      "total_attention": 0.03700621426105499
+    },
+    {
+      "token": "losing",
+      "total_attention": 0.036933302879333496
+    },
+    {
+      "token": "college",
+      "total_attention": 0.03369537740945816
+    },
+    {
+      "token": "emotion",
+      "total_attention": 0.03269176185131073
+    },
+    {
+      "token": "fun",
+      "total_attention": 0.03224852308630943
+    },
+    {
+      "token": "happy",
+      "total_attention": 0.031167365610599518
+    },
+    {
+      "token": "off",
+      "total_attention": 0.029285181313753128
+    }
+  ],
+  "bipolar": [
+    {
+      "token": ".",
+      "total_attention": 0.353553831577301
+    },
+    {
+      "token": "press",
+      "total_attention": 0.18176716193556786
+    },
+    {
+      "token": "nk",
+      "total_attention": 0.09837647527456284
+    },
+    {
+      "token": "fucking",
+      "total_attention": 0.07438919693231583
+    },
+    {
+      "token": "!",
+      "total_attention": 0.04827357083559036
+    },
+    {
+      "token": "erect",
+      "total_attention": 0.04683757573366165
+    },
+    {
+      "token": "i",
+      "total_attention": 0.04284551739692688
+    },
+    {
+      "token": "going",
+      "total_attention": 0.038872018456459045
+    },
+    {
+      "token": "depression",
+      "total_attention": 0.03730323165655136
+    },
+    {
+      "token": "dysfunction",
+      "total_attention": 0.03726041689515114
+    },
+    {
+      "token": "de",
+      "total_attention": 0.03588505834341049
+    },
+    {
+      "token": "sad",
+      "total_attention": 0.03396140784025192
+    },
+    {
+      "token": "life",
+      "total_attention": 0.033762529492378235
+    },
+    {
+      "token": "ile",
+      "total_attention": 0.03073013946413994
+    },
+    {
+      "token": "ivated",
+      "total_attention": 0.030443241819739342
+    },
+    {
+      "token": "walk",
+      "total_attention": 0.028232771903276443
+    },
+    {
+      "token": "ing",
+      "total_attention": 0.024551747366786003
+    },
+    {
+      "token": "house",
+      "total_attention": 0.02064984291791916
+    },
+    {
+      "token": "am",
+      "total_attention": 0.020524390041828156
+    },
+    {
+      "token": "else",
+      "total_attention": 0.020398641005158424
+    }
+  ],
+  "depression": [
+    {
+      "token": ".",
+      "total_attention": 0.5846273954957724
+    },
+    {
+      "token": "anxiety",
+      "total_attention": 0.407340694218874
+    },
+    {
+      "token": "nausea",
+      "total_attention": 0.08222847431898117
+    },
+    {
+      "token": "panic",
+      "total_attention": 0.03994595259428024
+    },
+    {
+      "token": "anxious",
+      "total_attention": 0.0378931388258934
+    },
+    {
+      "token": "or",
+      "total_attention": 0.03549104183912277
+    },
+    {
+      "token": "breathing",
+      "total_attention": 0.029558222740888596
+    },
+    {
+      "token": "day",
+      "total_attention": 0.02614540606737137
+    },
+    {
+      "token": "sane",
+      "total_attention": 0.02505354955792427
+    }
+  ],
+  "SuicideWatch": [
+    {
+      "token": ".",
+      "total_attention": 0.49347859621047974
+    },
+    {
+      "token": "bipolar",
+      "total_attention": 0.3227071613073349
+    },
+    {
+      "token": "la",
+      "total_attention": 0.09476309269666672
+    },
+    {
+      "token": "bi",
+      "total_attention": 0.05492283031344414
+    },
+    {
+      "token": "polar",
+      "total_attention": 0.05450064688920975
+    },
+    {
+      "token": "birthday",
+      "total_attention": 0.04376431368291378
+    },
+    {
+      "token": "depression",
+      "total_attention": 0.041105370968580246
+    },
+    {
+      "token": "stable",
+      "total_attention": 0.04079783707857132
+    },
+    {
+      "token": "tu",
+      "total_attention": 0.03935109078884125
+    },
+    {
+      "token": "disorder",
+      "total_attention": 0.034983158111572266
+    },
+    {
+      "token": "da",
+      "total_attention": 0.029955469071865082
+    },
+    {
+      "token": "blues",
+      "total_attention": 0.026073478162288666
+    },
+    {
+      "token": "lam",
+      "total_attention": 0.021376833319664
+    }
+  ],
+  "offmychest": [
+    {
+      "token": ".",
+      "total_attention": 0.4626751095056534
+    },
+    {
+      "token": "i",
+      "total_attention": 0.0865723267197609
+    },
+    {
+      "token": "posting",
+      "total_attention": 0.029551181942224503
+    },
+    {
+      "token": "money",
+      "total_attention": 0.027465760707855225
+    },
+    {
+      "token": "lie",
+      "total_attention": 0.024458235129714012
+    },
+    {
+      "token": "lost",
+      "total_attention": 0.02182665280997753
+    },
+    {
+      "token": "oc",
+      "total_attention": 0.02143154665827751
+    },
+    {
+      "token": "sending",
+      "total_attention": 0.019571416079998016
+    },
+    {
+      "token": "a",
+      "total_attention": 0.016029484570026398
+    }
+  ]
+}

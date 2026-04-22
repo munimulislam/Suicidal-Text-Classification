@@ -1,0 +1,166 @@
+{
+  "suicide": [
+    {
+      "token": "pizzaplace",
+      "total_importance": 0.6422775459627296
+    },
+    {
+      "token": "i",
+      "total_importance": 0.3234177710332492
+    },
+    {
+      "token": "hope",
+      "total_importance": 0.2570731757956592
+    },
+    {
+      "token": "tonight",
+      "total_importance": 0.2136085576871973
+    },
+    {
+      "token": "hopefully",
+      "total_importance": 0.21297122073485514
+    },
+    {
+      "token": "wont",
+      "total_importance": 0.1899057321007094
+    },
+    {
+      "token": "the",
+      "total_importance": 0.15438040169541345
+    },
+    {
+      "token": "lane",
+      "total_importance": 0.1474441841176025
+    },
+    {
+      "token": "lonely",
+      "total_importance": 0.13965995298992315
+    },
+    {
+      "token": "me",
+      "total_importance": 0.1365259202996923
+    },
+    {
+      "token": "selling",
+      "total_importance": 0.1350959970376834
+    },
+    {
+      "token": "free",
+      "total_importance": 0.1346891095657832
+    },
+    {
+      "token": "feel",
+      "total_importance": 0.13467523648912152
+    },
+    {
+      "token": "they",
+      "total_importance": 0.12496357264355297
+    },
+    {
+      "token": "was",
+      "total_importance": 0.1197687570279669
+    },
+    {
+      "token": "things",
+      "total_importance": 0.11925143047694439
+    },
+    {
+      "token": "one",
+      "total_importance": 0.11864833139394564
+    },
+    {
+      "token": "cared",
+      "total_importance": 0.11438188449175696
+    },
+    {
+      "token": "place",
+      "total_importance": 0.11423308385394736
+    },
+    {
+      "token": "don",
+      "total_importance": 0.11419034666267569
+    }
+  ],
+  "non-suicide": [
+    {
+      "token": "quotation",
+      "total_importance": 0.452907686895065
+    },
+    {
+      "token": "i",
+      "total_importance": 0.41382655379419286
+    },
+    {
+      "token": "this",
+      "total_importance": 0.3863308158026012
+    },
+    {
+      "token": "go",
+      "total_importance": 0.31391806858114113
+    },
+    {
+      "token": "exist",
+      "total_importance": 0.24320838058457403
+    },
+    {
+      "token": "living",
+      "total_importance": 0.2160894474906885
+    },
+    {
+      "token": "is",
+      "total_importance": 0.20564992387379682
+    },
+    {
+      "token": "normal",
+      "total_importance": 0.19986593469487016
+    },
+    {
+      "token": "universe",
+      "total_importance": 0.19194995453799896
+    },
+    {
+      "token": "but",
+      "total_importance": 0.18630113491684905
+    },
+    {
+      "token": "a",
+      "total_importance": 0.18562379779776694
+    },
+    {
+      "token": "afford",
+      "total_importance": 0.1707750692955194
+    },
+    {
+      "token": "ok",
+      "total_importance": 0.16021359608324204
+    },
+    {
+      "token": "through",
+      "total_importance": 0.15845522083937816
+    },
+    {
+      "token": "joke",
+      "total_importance": 0.1418241290290603
+    },
+    {
+      "token": "allowed",
+      "total_importance": 0.13303806330349763
+    },
+    {
+      "token": "so",
+      "total_importance": 0.12029516525941887
+    },
+    {
+      "token": "long",
+      "total_importance": 0.11367257286083468
+    },
+    {
+      "token": "starting",
+      "total_importance": 0.11250642345148387
+    },
+    {
+      "token": "road",
+      "total_importance": 0.11056630124415559
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "Anxiety": [
+    {
+      "token": "suicidal",
+      "total_importance": 0.2820418012415516
+    },
+    {
+      "token": "i",
+      "total_importance": 0.13413107511859035
+    },
+    {
+      "token": "lifeline",
+      "total_importance": 0.13056364886163913
+    },
+    {
+      "token": "me",
+      "total_importance": 0.12326751595883768
+    },
+    {
+      "token": "my",
+      "total_importance": 0.11699124900839403
+    },
+    {
+      "token": "feel",
+      "total_importance": 0.10568573495814662
+    },
+    {
+      "token": "happiness",
+      "total_importance": 0.07548126625424298
+    },
+    {
+      "token": "advice",
+      "total_importance": 0.07496826583489824
+    },
+    {
+      "token": "and",
+      "total_importance": 0.0715230580140939
+    },
+    {
+      "token": "feeling",
+      "total_importance": 0.06266592678192556
+    },
+    {
+      "token": "hurt",
+      "total_importance": 0.05511171219614563
+    },
+    {
+      "token": "happy",
+      "total_importance": 0.053974406947682116
+    },
+    {
+      "token": "tips",
+      "total_importance": 0.053749803384502165
+    },
+    {
+      "token": "stabilizers",
+      "total_importance": 0.05004411865368682
+    },
+    {
+      "token": "kill",
+      "total_importance": 0.049512842403659614
+    },
+    {
+      "token": "mood",
+      "total_importance": 0.04934755120134337
+    },
+    {
+      "token": "die",
+      "total_importance": 0.04919887308890587
+    },
+    {
+      "token": "patients",
+      "total_importance": 0.049101931560900335
+    },
+    {
+      "token": "psych",
+      "total_importance": 0.046589107954712675
+    },
+    {
+      "token": "liver",
+      "total_importance": 0.04636587467506187
+    }
+  ],
+  "bipolar": [
+    {
+      "token": "antidepressants",
+      "total_importance": 0.7094400265216528
+    },
+    {
+      "token": "kill",
+      "total_importance": 0.3741873761382728
+    },
+    {
+      "token": "depression",
+      "total_importance": 0.2717241246381426
+    },
+    {
+      "token": "i",
+      "total_importance": 0.1761043162772732
+    },
+    {
+      "token": "overthinking",
+      "total_importance": 0.15459924441449735
+    },
+    {
+      "token": "life",
+      "total_importance": 0.15437609686668052
+    },
+    {
+      "token": "fucking",
+      "total_importance": 0.14342289554798648
+    },
+    {
+      "token": "suicide",
+      "total_importance": 0.1383968188523109
+    },
+    {
+      "token": "walk",
+      "total_importance": 0.09471187753737732
+    },
+    {
+      "token": "tried",
+      "total_importance": 0.08258882446691589
+    },
+    {
+      "token": "sucks",
+      "total_importance": 0.08163672086517325
+    },
+    {
+      "token": "just",
+      "total_importance": 0.06881919824844213
+    },
+    {
+      "token": "end",
+      "total_importance": 0.0675491960969615
+    },
+    {
+      "token": "hate",
+      "total_importance": 0.06403346709112598
+    },
+    {
+      "token": "therapist",
+      "total_importance": 0.06286356439219547
+    },
+    {
+      "token": "dysfunction",
+      "total_importance": 0.06137847558962864
+    },
+    {
+      "token": "sent",
+      "total_importance": 0.05663437528306645
+    },
+    {
+      "token": "it",
+      "total_importance": 0.05070140100927262
+    },
+    {
+      "token": "else",
+      "total_importance": 0.04973279730349072
+    },
+    {
+      "token": "thinking",
+      "total_importance": 0.04919996008573184
+    }
+  ],
+  "depression": [
+    {
+      "token": "anxiety",
+      "total_importance": 1.4916955985104177
+    },
+    {
+      "token": "anxious",
+      "total_importance": 0.2964585564548126
+    },
+    {
+      "token": "keep",
+      "total_importance": 0.20584095140667502
+    },
+    {
+      "token": "panic",
+      "total_importance": 0.1276666056953206
+    },
+    {
+      "token": "going",
+      "total_importance": 0.12303796346984211
+    },
+    {
+      "token": "can",
+      "total_importance": 0.10002812781400489
+    },
+    {
+      "token": "this",
+      "total_importance": 0.07940210771423761
+    },
+    {
+      "token": "nausea",
+      "total_importance": 0.07534590283280164
+    },
+    {
+      "token": "about",
+      "total_importance": 0.07164498279868621
+    },
+    {
+      "token": "lonely",
+      "total_importance": 0.07096780408783807
+    },
+    {
+      "token": "breathing",
+      "total_importance": 0.0701948480708859
+    },
+    {
+      "token": "worry",
+      "total_importance": 0.0685256653113285
+    },
+    {
+      "token": "with",
+      "total_importance": 0.060457649715167
+    },
+    {
+      "token": "t",
+      "total_importance": 0.059052384892860785
+    },
+    {
+      "token": "me",
+      "total_importance": 0.05831288770171739
+    },
+    {
+      "token": "and",
+      "total_importance": 0.05694244307130304
+    },
+    {
+      "token": "stomach",
+      "total_importance": 0.05605513906981054
+    },
+    {
+      "token": "like",
+      "total_importance": 0.05510511936163139
+    },
+    {
+      "token": "starts",
+      "total_importance": 0.049373137603009376
+    },
+    {
+      "token": "knots",
+      "total_importance": 0.04692649664328256
+    }
+  ],
+  "SuicideWatch": [
+    {
+      "token": "bipolar",
+      "total_importance": 0.7175587043189413
+    },
+    {
+      "token": "latuda",
+      "total_importance": 0.27158195031654214
+    },
+    {
+      "token": "polar",
+      "total_importance": 0.15410574698392382
+    },
+    {
+      "token": "my",
+      "total_importance": 0.06851596250913156
+    },
+    {
+      "token": "bi",
+      "total_importance": 0.06202433300098483
+    },
+    {
+      "token": "depression",
+      "total_importance": 0.05960301478728351
+    },
+    {
+      "token": "life",
+      "total_importance": 0.05768933574553712
+    },
+    {
+      "token": "working",
+      "total_importance": 0.052805843488514574
+    },
+    {
+      "token": "lamtical",
+      "total_importance": 0.050804701542655
+    },
+    {
+      "token": "disappointment",
+      "total_importance": 0.047337584254757765
+    },
+    {
+      "token": "seeker",
+      "total_importance": 0.04697045366638305
+    },
+    {
+      "token": "relationship",
+      "total_importance": 0.04493802423519212
+    },
+    {
+      "token": "really",
+      "total_importance": 0.044471102911261454
+    },
+    {
+      "token": "from",
+      "total_importance": 0.04397608103297541
+    },
+    {
+      "token": "med",
+      "total_importance": 0.04346905421389638
+    },
+    {
+      "token": "type",
+      "total_importance": 0.04327318659413295
+    },
+    {
+      "token": "myself",
+      "total_importance": 0.039832540555662065
+    },
+    {
+      "token": "just",
+      "total_importance": 0.03722614457188784
+    },
+    {
+      "token": "can",
+      "total_importance": 0.03686350238866747
+    },
+    {
+      "token": "in",
+      "total_importance": 0.03645790402205131
+    }
+  ],
+  "offmychest": [
+    {
+      "token": "i",
+      "total_importance": 0.1999428140512554
+    },
+    {
+      "token": "and",
+      "total_importance": 0.11699106330605161
+    },
+    {
+      "token": "family",
+      "total_importance": 0.10161094225434747
+    },
+    {
+      "token": "women",
+      "total_importance": 0.10009690483848921
+    },
+    {
+      "token": "grinch",
+      "total_importance": 0.09901177342828524
+    },
+    {
+      "token": "this",
+      "total_importance": 0.08536901723625179
+    },
+    {
+      "token": "girls",
+      "total_importance": 0.07824708165431142
+    },
+    {
+      "token": "my",
+      "total_importance": 0.07131897736402622
+    },
+    {
+      "token": "year",
+      "total_importance": 0.06892636053350162
+    },
+    {
+      "token": "but",
+      "total_importance": 0.06822022449674395
+    },
+    {
+      "token": "lost",
+      "total_importance": 0.06647781724754356
+    },
+    {
+      "token": "a",
+      "total_importance": 0.06511329117705426
+    },
+    {
+      "token": "fetish",
+      "total_importance": 0.06362814914203149
+    },
+    {
+      "token": "posting",
+      "total_importance": 0.06265006920985303
+    },
+    {
+      "token": "tradition",
+      "total_importance": 0.06127565289391895
+    },
+    {
+      "token": "the",
+      "total_importance": 0.05886095832855206
+    },
+    {
+      "token": "christmas",
+      "total_importance": 0.057419448399218385
+    },
+    {
+      "token": "point",
+      "total_importance": 0.05015816570875126
+    },
+    {
+      "token": "kids",
+      "total_importance": 0.04990097275628364
+    },
+    {
+      "token": "in",
+      "total_importance": 0.049803754148346646
+    }
+  ]
+}

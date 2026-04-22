@@ -1,0 +1,90 @@
+{
+  "false_negatives_missed_crises": [
+    {
+      "idx": 46,
+      "text": "I hope you all find peace and happiness Reading your posts over the months have at times helped me feel less alone. I hope that happiness finds its way into your lives",
+      "true_label": "Anxiety",
+      "pred_label": "bipolar",
+      "confidence": 0.7027502059936523,
+      "probs": [
+        0.00801079347729683,
+        0.7027502059936523,
+        0.16311578452587128,
+        0.11315690726041794,
+        0.012966406531631947
+      ]
+    },
+    {
+      "idx": 63,
+      "text": "Any tips for not feeling numb? I'm losing myself slowly and I can't find anything to be fun anymore. I just want to be happy again. All my college friends are back. Please someone help me.",
+      "true_label": "Anxiety",
+      "pred_label": "bipolar",
+      "confidence": 0.958580732345581,
+      "probs": [
+        0.022550728172063828,
+        0.958580732345581,
+        0.009030526503920555,
+        0.006812339182943106,
+        0.003025671234354377
+      ]
+    },
+    {
+      "idx": 92,
+      "text": "I guess I didn't take enough Last night I downed a mix of pills, benzos. Ssris, mood stabilizers, and cough meds. Guess it wasn't enough. I woke up today feeling..off. Almost like I'm not even a person I'm just going through the motions. I have literally no emotion. anyone ever experience this before?",
+      "true_label": "Anxiety",
+      "pred_label": "SuicideWatch",
+      "confidence": 0.7888068556785583,
+      "probs": [
+        0.010981880128383636,
+        0.1950477808713913,
+        0.004515440668910742,
+        0.7888068556785583,
+        0.0006480267038568854
+      ]
+    }
+  ],
+  "false_positives_false_alarms": [
+    {
+      "idx": 5,
+      "text": "Please Help Me I Can't Keep Going Like This",
+      "true_label": "depression",
+      "pred_label": "Anxiety",
+      "confidence": 0.7613730430603027,
+      "probs": [
+        0.7613730430603027,
+        0.19548852741718292,
+        0.033972617238759995,
+        0.00540459668263793,
+        0.0037612079177051783
+      ]
+    },
+    {
+      "idx": 6,
+      "text": "Biding time I've been doing nothing all day and I tried to kill myself last nigh and I go to the therapist at 3 so I am fucking dreading being sent to the goddamn hospital Maybe I can find something to kill myself with at the hospital Edit: found some broken glass in the classroom, gonna go to the bathroom and slice n' dice",
+      "true_label": "bipolar",
+      "pred_label": "Anxiety",
+      "confidence": 0.8482391238212585,
+      "probs": [
+        0.8482391238212585,
+        0.1411149501800537,
+        0.00365198845975101,
+        0.0032849032431840897,
+        0.0037091062404215336
+      ]
+    },
+    {
+      "idx": 20,
+      "text": "Hey can anyone help All i can think of nowadays is how to kill myself. I don't really want to do it but i find getting closer every day. I don't know how to cope with life. Like I'm losing my mind over small things but it feels like they are the only things that matter. I feel like when i graduate high school I'm gonna be out of my safety net and everyone's gonna know what a loser i am (never been the social kind). So I feel like I've set myself a deadline for suicide and I'm scared i actually might follow through. I feel like a chump blabbering but it feels good to write it out.",
+      "true_label": "bipolar",
+      "pred_label": "Anxiety",
+      "confidence": 0.9216793179512024,
+      "probs": [
+        0.9216793179512024,
+        0.07090887427330017,
+        0.0008893723716028035,
+        0.001089148805476725,
+        0.00543320132419467
+      ]
+    }
+  ]
+}

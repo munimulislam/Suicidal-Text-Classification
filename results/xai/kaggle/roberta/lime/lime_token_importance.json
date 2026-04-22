@@ -1,0 +1,166 @@
+{
+  "suicide": [
+    {
+      "token": "die",
+      "total_importance": 0.769053812696566
+    },
+    {
+      "token": "use1f",
+      "total_importance": 0.6192239818820293
+    },
+    {
+      "token": "oficaly",
+      "total_importance": 0.4400493418768729
+    },
+    {
+      "token": "friends",
+      "total_importance": 0.3539811397367304
+    },
+    {
+      "token": "therapist",
+      "total_importance": 0.3201020725712055
+    },
+    {
+      "token": "living",
+      "total_importance": 0.24326161130660887
+    },
+    {
+      "token": "most",
+      "total_importance": 0.2264463610869847
+    },
+    {
+      "token": "tired",
+      "total_importance": 0.20807288469601487
+    },
+    {
+      "token": "to",
+      "total_importance": 0.17700449989861244
+    },
+    {
+      "token": "way",
+      "total_importance": 0.17630832672033883
+    },
+    {
+      "token": "wanted",
+      "total_importance": 0.17387759147058265
+    },
+    {
+      "token": "affordable",
+      "total_importance": 0.1589469352346474
+    },
+    {
+      "token": "effective",
+      "total_importance": 0.1525830987419144
+    },
+    {
+      "token": "im",
+      "total_importance": 0.14797812338739552
+    },
+    {
+      "token": "so",
+      "total_importance": 0.1473339314780531
+    },
+    {
+      "token": "dickheads",
+      "total_importance": 0.13940524162633147
+    },
+    {
+      "token": "lol",
+      "total_importance": 0.13304954546478018
+    },
+    {
+      "token": "got",
+      "total_importance": 0.13005002465059762
+    },
+    {
+      "token": "mother",
+      "total_importance": 0.12105233489592984
+    },
+    {
+      "token": "girl",
+      "total_importance": 0.11730793146367835
+    }
+  ],
+  "non-suicide": [
+    {
+      "token": "ownlong",
+      "total_importance": 0.19968177090146663
+    },
+    {
+      "token": "15",
+      "total_importance": 0.19468167583947205
+    },
+    {
+      "token": "i",
+      "total_importance": 0.17432646515368236
+    },
+    {
+      "token": "spiders",
+      "total_importance": 0.15309661453481016
+    },
+    {
+      "token": "suicide",
+      "total_importance": 0.1508577780484334
+    },
+    {
+      "token": "help",
+      "total_importance": 0.10314404574401456
+    },
+    {
+      "token": "warning",
+      "total_importance": 0.10164758126340605
+    },
+    {
+      "token": "anymore",
+      "total_importance": 0.08671139292513377
+    },
+    {
+      "token": "repairalone",
+      "total_importance": 0.08631500409814191
+    },
+    {
+      "token": "me",
+      "total_importance": 0.08259428577012803
+    },
+    {
+      "token": "possible",
+      "total_importance": 0.07708037724671646
+    },
+    {
+      "token": "30",
+      "total_importance": 0.06853913816784019
+    },
+    {
+      "token": "harm",
+      "total_importance": 0.06791720849847703
+    },
+    {
+      "token": "deserve",
+      "total_importance": 0.065245057941554
+    },
+    {
+      "token": "lying",
+      "total_importance": 0.06484159868286377
+    },
+    {
+      "token": "80",
+      "total_importance": 0.06318687151153626
+    },
+    {
+      "token": "took",
+      "total_importance": 0.06140772392985996
+    },
+    {
+      "token": "just",
+      "total_importance": 0.06043029588804787
+    },
+    {
+      "token": "told",
+      "total_importance": 0.0604100218410512
+    },
+    {
+      "token": "message",
+      "total_importance": 0.05968158919963429
+    }
+  ]
+}

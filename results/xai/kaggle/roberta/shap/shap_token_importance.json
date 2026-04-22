@@ -1,0 +1,166 @@
+{
+  "suicide": [
+    {
+      "token": "I",
+      "total_importance": 0.5866637616930641
+    },
+    {
+      "token": ".",
+      "total_importance": 0.28267450503731395
+    },
+    {
+      "token": "affordable",
+      "total_importance": 0.26908794226047966
+    },
+    {
+      "token": "effective",
+      "total_importance": 0.26344966335796016
+    },
+    {
+      "token": "!",
+      "total_importance": 0.25042864894938766
+    },
+    {
+      "token": "filler",
+      "total_importance": 0.24993617100881238
+    },
+    {
+      "token": "tired",
+      "total_importance": 0.247279590258261
+    },
+    {
+      "token": "im",
+      "total_importance": 0.2429785442350294
+    },
+    {
+      "token": "to",
+      "total_importance": 0.23929533513018947
+    },
+    {
+      "token": "Can",
+      "total_importance": 0.23537113868967263
+    },
+    {
+      "token": "therapist",
+      "total_importance": 0.228968480545196
+    },
+    {
+      "token": "continues",
+      "total_importance": 0.22583634923406257
+    },
+    {
+      "token": "me",
+      "total_importance": 0.2105231046277216
+    },
+    {
+      "token": "'ve",
+      "total_importance": 0.20349115069948345
+    },
+    {
+      "token": "1",
+      "total_importance": 0.188565124679144
+    },
+    {
+      "token": "seen",
+      "total_importance": 0.18288536835915425
+    },
+    {
+      "token": "want",
+      "total_importance": 0.1812300348010467
+    },
+    {
+      "token": "t",
+      "total_importance": 0.18096515101631536
+    },
+    {
+      "token": "options",
+      "total_importance": 0.16005069074006834
+    },
+    {
+      "token": "living",
+      "total_importance": 0.15533160452478512
+    }
+  ],
+  "non-suicide": [
+    {
+      "token": ".",
+      "total_importance": 0.7532263258671423
+    },
+    {
+      "token": "I",
+      "total_importance": 0.729814738516905
+    },
+    {
+      "token": ",",
+      "total_importance": 0.31197999545845917
+    },
+    {
+      "token": "My",
+      "total_importance": 0.2176071083904021
+    },
+    {
+      "token": "and",
+      "total_importance": 0.1977667419845306
+    },
+    {
+      "token": "misunderstood",
+      "total_importance": 0.16884894102480585
+    },
+    {
+      "token": "l",
+      "total_importance": 0.14208890841904584
+    },
+    {
+      "token": "my",
+      "total_importance": 0.13303794824882179
+    },
+    {
+      "token": "i",
+      "total_importance": 0.12480302620147712
+    },
+    {
+      "token": "own",
+      "total_importance": 0.12074243063792353
+    },
+    {
+      "token": "Long",
+      "total_importance": 0.12074243063792353
+    },
+    {
+      "token": ")",
+      "total_importance": 0.10955453801224088
+    },
+    {
+      "token": "not",
+      "total_importance": 0.10531185195752522
+    },
+    {
+      "token": "kill",
+      "total_importance": 0.103877633829742
+    },
+    {
+      "token": "a",
+      "total_importance": 0.09607636727623273
+    },
+    {
+      "token": "depression",
+      "total_importance": 0.09532556872735402
+    },
+    {
+      "token": "to",
+      "total_importance": 0.09489973919825467
+    },
+    {
+      "token": "off",
+      "total_importance": 0.08757004851582796
+    },
+    {
+      "token": "just",
+      "total_importance": 0.08403740805788884
+    },
+    {
+      "token": "am",
+      "total_importance": 0.07896970287136676
+    }
+  ]
+}

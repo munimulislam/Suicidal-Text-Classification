@@ -1,0 +1,312 @@
+{
+  "Anxiety": [
+    {
+      "token": "suicidal",
+      "score": 3.0678320485777686
+    },
+    {
+      "token": "i",
+      "score": 2.4959309585485903
+    },
+    {
+      "token": "to",
+      "score": 2.2287899805535902
+    },
+    {
+      "token": "my",
+      "score": 2.1858230203984137
+    },
+    {
+      "token": "your",
+      "score": 2.1555096497581827
+    },
+    {
+      "token": "alone",
+      "score": 2.0116353036364663
+    },
+    {
+      "token": ".",
+      "score": 1.9449268473418826
+    },
+    {
+      "token": "you",
+      "score": 1.9208947953228104
+    },
+    {
+      "token": "horrible",
+      "score": 1.7822342460713687
+    },
+    {
+      "token": "and",
+      "score": 1.7759099183221225
+    },
+    {
+      "token": "me",
+      "score": 1.7225804617545295
+    },
+    {
+      "token": "suicide",
+      "score": 1.3688916991334124
+    },
+    {
+      "token": "die",
+      "score": 1.3395613247915543
+    },
+    {
+      "token": "this",
+      "score": 1.3243535600960414
+    },
+    {
+      "token": "wanting",
+      "score": 1.3235181707317256
+    }
+  ],
+  "bipolar": [
+    {
+      "token": "depression",
+      "score": 4.678338285691188
+    },
+    {
+      "token": "going",
+      "score": 3.7748793806486742
+    },
+    {
+      "token": "i",
+      "score": 3.1965453661154877
+    },
+    {
+      "token": "kill",
+      "score": 3.126005353470444
+    },
+    {
+      "token": "suicide",
+      "score": 1.8276092659373397
+    },
+    {
+      "token": "me",
+      "score": 1.7683836448601031
+    },
+    {
+      "token": "hate",
+      "score": 1.462699832981741
+    },
+    {
+      "token": "dysfunction",
+      "score": 1.272696670900265
+    },
+    {
+      "token": ".",
+      "score": 1.2205299238650804
+    },
+    {
+      "token": ",",
+      "score": 0.9734592549168468
+    },
+    {
+      "token": "psychiatrist",
+      "score": 0.973004188462824
+    },
+    {
+      "token": "on",
+      "score": 0.898318963668691
+    },
+    {
+      "token": "people",
+      "score": 0.8011372906102621
+    },
+    {
+      "token": "it",
+      "score": 0.7926066140559084
+    },
+    {
+      "token": "press",
+      "score": 0.7610091799909701
+    }
+  ],
+  "depression": [
+    {
+      "token": "anxiety",
+      "score": 9.0
+    },
+    {
+      "token": "is",
+      "score": 1.4968827102289897
+    },
+    {
+      "token": "day",
+      "score": 0.7532034117158355
+    },
+    {
+      "token": "panic",
+      "score": 0.7233767608560968
+    },
+    {
+      "token": "nausea",
+      "score": 0.7129236684537701
+    },
+    {
+      "token": "i",
+      "score": 0.588302658508101
+    },
+    {
+      "token": "uncommon",
+      "score": 0.5505886451023818
+    },
+    {
+      "token": "hate",
+      "score": 0.5410447911882386
+    },
+    {
+      "token": "this",
+      "score": 0.5333796641633313
+    },
+    {
+      "token": "anxious",
+      "score": 0.5126298989895373
+    },
+    {
+      "token": "e",
+      "score": 0.5088326755050527
+    },
+    {
+      "token": "and",
+      "score": 0.4964909664731
+    },
+    {
+      "token": "that",
+      "score": 0.460253184239422
+    },
+    {
+      "token": "after",
+      "score": 0.4589604057609501
+    },
+    {
+      "token": "ting",
+      "score": 0.4079459774325954
+    }
+  ],
+  "SuicideWatch": [
+    {
+      "token": "bipolar",
+      "score": 9.0
+    },
+    {
+      "token": "disorder",
+      "score": 2.929150371364538
+    },
+    {
+      "token": "withdrawal",
+      "score": 2.509887375022312
+    },
+    {
+      "token": "depression",
+      "score": 2.1738807879077178
+    },
+    {
+      "token": ".",
+      "score": 1.6010475690421533
+    },
+    {
+      "token": "with",
+      "score": 1.3858166062373447
+    },
+    {
+      "token": "birthday",
+      "score": 1.2635005485473152
+    },
+    {
+      "token": "nasty",
+      "score": 1.051222114870793
+    },
+    {
+      "token": "treating",
+      "score": 0.9500598682100944
+    },
+    {
+      "token": "stable",
+      "score": 0.9376678252640265
+    },
+    {
+      "token": "or",
+      "score": 0.9286020591823129
+    },
+    {
+      "token": "?",
+      "score": 0.7330131461714162
+    },
+    {
+      "token": "worse",
+      "score": 0.6786849815116082
+    },
+    {
+      "token": "ffe",
+      "score": 0.5458541889427709
+    },
+    {
+      "token": "conjunction",
+      "score": 0.5263682676412276
+    }
+  ],
+  "offmychest": [
+    {
+      "token": "my",
+      "score": 4.050654899317177
+    },
+    {
+      "token": "end",
+      "score": 4.0
+    },
+    {
+      "token": "to",
+      "score": 3.804691704678341
+    },
+    {
+      "token": "the",
+      "score": 3.308653627293573
+    },
+    {
+      "token": "becoming",
+      "score": 2.717981313571059
+    },
+    {
+      "token": "liar",
+      "score": 2.47992962522508
+    },
+    {
+      "token": "moral",
+      "score": 2.4380494582936576
+    },
+    {
+      "token": "lost",
+      "score": 2.1355672387903355
+    },
+    {
+      "token": "kids",
+      "score": 2.0400783924587933
+    },
+    {
+      "token": "christmas",
+      "score": 1.9608126477478476
+    },
+    {
+      "token": "this",
+      "score": 1.7653495361931895
+    },
+    {
+      "token": "en",
+      "score": 1.5311481470024073
+    },
+    {
+      "token": "money",
+      "score": 1.4933523990173276
+    },
+    {
+      "token": "stop",
+      "score": 1.354723100973407
+    },
+    {
+      "token": "life",
+      "score": 1.2267328920489808
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "false_negatives_missed_crises": [
+    {
+      "idx": 33,
+      "text": "I want to not exist but I'm scared about the universe starting over again (the big bounce)I'm sick of living but if I die won't I come back eventually again? If the universe constantly begins and ends won't that mean the same things will happen forever and there is nothing you can do about it I just want the universe to end and never start again but we live in a cycle of big bangs for who knows how long",
+      "true_label": "non-suicide",
+      "pred_label": "suicide",
+      "confidence": 0.9996509552001953,
+      "probs": [
+        0.9996509552001953,
+        0.00034909715759567916
+      ]
+    },
+    {
+      "idx": 80,
+      "text": "Ok this is beyond a joke now!I've looked after my mother for many years, she died in November. Now I've been diagnosed with cancer and am undergoing pre-surgery chemo. As if that wasn't enough my dog (who I've had for 12 years) has lesions on his brain, likely cancerous. There's nothing they can do save for chemo, which I wouldn't put him through and can't afford anyway. Just how much does one person have to go through before they call it quits? Am I allowed to go now?",
+      "true_label": "non-suicide",
+      "pred_label": "suicide",
+      "confidence": 0.9332646131515503,
+      "probs": [
+        0.9332646131515503,
+        0.0667353942990303
+      ]
+    },
+    {
+      "idx": 421,
+      "text": "Is this normal ideation?Putting normal in quotation because no one is truly normal, I just wonder if this is a cause for concern. So this has been happening ever since I can remember, and I started to notice it again in recent months. I would take walks around my neighborhood which is right next to a two-way road. I would be walking and see a car coming and have the mildest urge to step off the curb and in front of the car. This only happens when I m outside. The urge isn t terribly strong, when I see a car coming I feel like stepping off the curb is like going down a roller coaster. Does anyone else have a similar experience? Should I be concerned?",
+      "true_label": "non-suicide",
+      "pred_label": "suicide",
+      "confidence": 0.999944806098938,
+      "probs": [
+        0.999944806098938,
+        5.514635267900303e-05
+      ]
+    }
+  ],
+  "false_positives_false_alarms": [
+    {
+      "idx": 35,
+      "text": "I wont stop.. Steam train, souls from the city We know no bones from the grave Suppose I never cared much 'bout Who could be saved Beware the wolves and snakes Wrapped up tight beneath the shade You have a lonely one along the way out Who had no name We tread a line in our own lane It's a sit-down hallway And I don't feel I know what hope is What is this place? Take these things away from me They're useless bits I'll never need Stop my breath, so I'll be free I won't, I won't stop 'Til I found you",
+      "true_label": "suicide",
+      "pred_label": "non-suicide",
+      "confidence": 0.9998859167098999,
+      "probs": [
+        0.00011406853445805609,
+        0.9998859167098999
+      ]
+    },
+    {
+      "idx": 86,
+      "text": "Hopefully no one needs me tonight.. Cuz if so I'm going to sleep. I should be up by 10 am and I'm taking tomorrow off so I'll contact anyone that needs me to. Goodnight my dear reddiitors",
+      "true_label": "suicide",
+      "pred_label": "non-suicide",
+      "confidence": 0.9999138116836548,
+      "probs": [
+        8.62213782966137e-05,
+        0.9999138116836548
+      ]
+    },
+    {
+      "idx": 152,
+      "text": "they just closed my favorite pizzaplace :( I'm sad i just don't know how to react, It was from an actual italian family, they made the best pizzas, you coud see the love, the beauty of the pizza, that golden yellow cheese, the red hot pepperoni, the crunchy edge. We used to go every last tuesday of the month :( we went today and It was closed, with a Big sign saying that they no longer make pizza, they are selling it due to few customers. The worst of all is that the only pizzeria left is an ugly Domino's It was good wile It lasted",
+      "true_label": "suicide",
+      "pred_label": "non-suicide",
+      "confidence": 0.9990482926368713,
+      "probs": [
+        0.0009517364087514579,
+        0.9990482926368713
+      ]
+    }
+  ]
+}

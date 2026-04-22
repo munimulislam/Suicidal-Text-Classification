@@ -1,0 +1,40 @@
+
+[SUICIDE]
+  All 3 methods agree: 2, are, brain, cells, favorite, filler, fucking, game, god, hate
+  SHAP + LIME agree:   a, affordable, and, any, anyone, assuming, baby, be, brief, come
+  Top 15 by combined score:
+     1. filler               score=4.278 [SHAP, LIME, ATTN]
+     2. lost                 score=2.373 [SHAP, LIME, ATTN]
+     3. god                  score=2.341 [SHAP, LIME, ATTN]
+     4. die                  score=2.104 [SHAP, LIME]
+     5. i                    score=1.705 [SHAP, LIME, ATTN]
+     6. therapist            score=1.613 [SHAP, LIME]
+     7. fucking              score=1.582 [SHAP, LIME, ATTN]
+     8. movie                score=1.492 [SHAP, LIME, ATTN]
+     9. u                    score=1.419 [SHAP, LIME, ATTN]
+    10. tired                score=1.384 [SHAP, LIME]
+    11. affordable           score=1.331 [SHAP, LIME]
+    12. effective            score=1.295 [SHAP, LIME]
+    13. to                   score=1.276 [SHAP, LIME]
+    14. im                   score=1.213 [SHAP, LIME]
+    15. living               score=1.162 [SHAP, LIME]
+
+[NON-SUICIDE]
+  All 3 methods agree: 80, anymore, beyond, else, girlfriend, going, harm, harming, help, i
+  SHAP + LIME agree:   15, 30, a, aggressive, am, and, anyone, are, bad, been
+  Top 15 by combined score:
+     1. self                 score=3.865 [SHAP, LIME, ATTN]
+     2. i                    score=3.348 [SHAP, LIME, ATTN]
+     3. .                    score=2.661 [SHAP, ATTN]
+     4. help                 score=2.554 [SHAP, LIME, ATTN]
+     5. anymore              score=2.403 [SHAP, LIME, ATTN]
+     6. me                   score=2.353 [SHAP, LIME, ATTN]
+     7. 15                   score=2.156 [SHAP, LIME]
+     8. harm                 score=2.043 [SHAP, LIME, ATTN]
+     9. just                 score=1.979 [SHAP, LIME, ATTN]
+    10. 80                   score=1.966 [SHAP, LIME, ATTN]
+    11. manic                score=1.906 [SHAP, LIME, ATTN]
+    12. kill                 score=1.889 [SHAP, LIME, ATTN]
+    13. going                score=1.851 [SHAP, LIME, ATTN]
+    14. period               score=1.765 [SHAP, LIME, ATTN]
+    15. harming              score=1.656 [SHAP, LIME, ATTN]

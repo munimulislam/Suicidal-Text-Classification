@@ -1,0 +1,166 @@
+{
+  "suicide": [
+    {
+      "token": "(",
+      "total_importance": 0.4460452638063922
+    },
+    {
+      "token": ":",
+      "total_importance": 0.42845236799304315
+    },
+    {
+      "token": "fill",
+      "total_importance": 0.33921219979868056
+    },
+    {
+      "token": "pizza",
+      "total_importance": 0.3380156280123308
+    },
+    {
+      "token": "2",
+      "total_importance": 0.3257046413673924
+    },
+    {
+      "token": "z",
+      "total_importance": 0.26337009349111234
+    },
+    {
+      "token": "!",
+      "total_importance": 0.261549798013058
+    },
+    {
+      "token": "*",
+      "total_importance": 0.24956228137102698
+    },
+    {
+      "token": ".",
+      "total_importance": 0.22993784829838762
+    },
+    {
+      "token": "Cu",
+      "total_importance": 0.2043219942054086
+    },
+    {
+      "token": "u",
+      "total_importance": 0.1948656454757156
+    },
+    {
+      "token": "movie",
+      "total_importance": 0.18591899536158962
+    },
+    {
+      "token": "pl",
+      "total_importance": 0.17454117864881846
+    },
+    {
+      "token": "ace",
+      "total_importance": 0.16570313302873765
+    },
+    {
+      "token": "me",
+      "total_importance": 0.16537448337071425
+    },
+    {
+      "token": "it",
+      "total_importance": 0.16301183664201424
+    },
+    {
+      "token": "contact",
+      "total_importance": 0.15967154208988177
+    },
+    {
+      "token": "Steam",
+      "total_importance": 0.15725224965331008
+    },
+    {
+      "token": "t",
+      "total_importance": 0.1488817890180321
+    },
+    {
+      "token": "Hopefully",
+      "total_importance": 0.1245825333189714
+    }
+  ],
+  "non-suicide": [
+    {
+      "token": "Ok",
+      "total_importance": 0.3516116347601726
+    },
+    {
+      "token": "quota",
+      "total_importance": 0.2868040743046005
+    },
+    {
+      "token": "tion",
+      "total_importance": 0.1985241696631086
+    },
+    {
+      "token": "go",
+      "total_importance": 0.18133132130625462
+    },
+    {
+      "token": "normal",
+      "total_importance": 0.1787504350957777
+    },
+    {
+      "token": "I",
+      "total_importance": 0.15706114799267434
+    },
+    {
+      "token": "exist",
+      "total_importance": 0.1553183137603225
+    },
+    {
+      "token": "to",
+      "total_importance": 0.1436719745164774
+    },
+    {
+      "token": "long",
+      "total_importance": 0.1421966449122038
+    },
+    {
+      "token": "it",
+      "total_importance": 0.13476934541872965
+    },
+    {
+      "token": "Putting",
+      "total_importance": 0.13370760490092454
+    },
+    {
+      "token": "che",
+      "total_importance": 0.11992712701119326
+    },
+    {
+      "token": "joke",
+      "total_importance": 0.10954433356886309
+    },
+    {
+      "token": "?",
+      "total_importance": 0.10769739146348295
+    },
+    {
+      "token": "this",
+      "total_importance": 0.10695869766467564
+    },
+    {
+      "token": "in",
+      "total_importance": 0.0981639351172459
+    },
+    {
+      "token": "Now",
+      "total_importance": 0.09530343010692913
+    },
+    {
+      "token": "but",
+      "total_importance": 0.09232111496490998
+    },
+    {
+      "token": "we",
+      "total_importance": 0.08455815815426938
+    },
+    {
+      "token": "now",
+      "total_importance": 0.0834620327899328
+    }
+  ]
+}

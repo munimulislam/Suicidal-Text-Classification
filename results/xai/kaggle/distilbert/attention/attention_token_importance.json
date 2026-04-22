@@ -1,0 +1,166 @@
+{
+  "suicide": [
+    {
+      "token": "*",
+      "total_attention": 0.35694774985313416
+    },
+    {
+      "token": "2",
+      "total_attention": 0.18142244219779968
+    },
+    {
+      "token": "!",
+      "total_attention": 0.13863543793559074
+    },
+    {
+      "token": "fill",
+      "total_attention": 0.12718414887785912
+    },
+    {
+      "token": "'",
+      "total_attention": 0.10508887469768524
+    },
+    {
+      "token": "hate",
+      "total_attention": 0.07687175273895264
+    },
+    {
+      "token": "in",
+      "total_attention": 0.07071351259946823
+    },
+    {
+      "token": "lost",
+      "total_attention": 0.06832529604434967
+    },
+    {
+      "token": "(",
+      "total_attention": 0.059863533824682236
+    },
+    {
+      "token": "are",
+      "total_attention": 0.05849488824605942
+    },
+    {
+      "token": "guys",
+      "total_attention": 0.05402664095163345
+    },
+    {
+      "token": "that",
+      "total_attention": 0.05242311581969261
+    },
+    {
+      "token": ":",
+      "total_attention": 0.05116279050707817
+    },
+    {
+      "token": "your",
+      "total_attention": 0.049122154712677
+    },
+    {
+      "token": "u",
+      "total_attention": 0.043942641466856
+    },
+    {
+      "token": "what",
+      "total_attention": 0.042495645582675934
+    },
+    {
+      "token": "er",
+      "total_attention": 0.041195254772901535
+    },
+    {
+      "token": "god",
+      "total_attention": 0.03679266199469566
+    },
+    {
+      "token": "my",
+      "total_attention": 0.03320438414812088
+    },
+    {
+      "token": "this",
+      "total_attention": 0.026254018768668175
+    }
+  ],
+  "non-suicide": [
+    {
+      "token": "'",
+      "total_attention": 0.6129402425140142
+    },
+    {
+      "token": "long",
+      "total_attention": 0.5109707117080688
+    },
+    {
+      "token": "alo",
+      "total_attention": 0.46699124574661255
+    },
+    {
+      "token": "i",
+      "total_attention": 0.41157409083098173
+    },
+    {
+      "token": "exam",
+      "total_attention": 0.09360625594854355
+    },
+    {
+      "token": ".",
+      "total_attention": 0.085123504512012
+    },
+    {
+      "token": "ditch",
+      "total_attention": 0.07575748860836029
+    },
+    {
+      "token": "this",
+      "total_attention": 0.07292564585804939
+    },
+    {
+      "token": "have",
+      "total_attention": 0.06404688954353333
+    },
+    {
+      "token": "go",
+      "total_attention": 0.05193312466144562
+    },
+    {
+      "token": "no",
+      "total_attention": 0.05142165347933769
+    },
+    {
+      "token": "tunnel",
+      "total_attention": 0.047141265124082565
+    },
+    {
+      "token": "!",
+      "total_attention": 0.0456700474023819
+    },
+    {
+      "token": "of",
+      "total_attention": 0.04203321039676666
+    },
+    {
+      "token": "my",
+      "total_attention": 0.037661162205040455
+    },
+    {
+      "token": "today",
+      "total_attention": 0.035708386451005936
+    },
+    {
+      "token": "get",
+      "total_attention": 0.035093314945697784
+    },
+    {
+      "token": "to",
+      "total_attention": 0.029189541935920715
+    },
+    {
+      "token": "ne",
+      "total_attention": 0.028768520802259445
+    },
+    {
+      "token": "myself",
+      "total_attention": 0.028680752962827682
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "false_negatives_missed_crises": [
+    {
+      "idx": 53,
+      "text": "Benadryl Will 80 Benadryl kill me?? I took 15 before I just want to know when I took 15 last time I was having trouble breathing and I saw the spiders as well as experienced delirium. I just can t stand living anymore as well as due to what s been happening lately if you saw my previous post then you ll know what I m talking about. I just have nothing going for me anymore.",
+      "true_label": "non-suicide",
+      "pred_label": "suicide",
+      "confidence": 0.9995009899139404,
+      "probs": [
+        0.9995009899139404,
+        0.0004989529843442142
+      ]
+    },
+    {
+      "idx": 129,
+      "text": "Feeling like self harming (Repost, same situation) Sorry, I'm not sure where else to post this so I hope it's okay in this subreddit since I'm not yet at the point of feeling suicida, but when I feel like this it sometimes does get to that point.. anyway I'm not exactly comfortable posting everything on here but I've been cutting lately and it's starting to get out of hand and I feel like self harming right now and I'm really just trying to keep my hands busy and I would love to talk in a more private conversation so if someone would PM me or even maybe (preferably, if you're comfortable) text that would really help me a lot.. None of my friends know except for one who is making me feel this way so I really have no one else to talk to.. I'm a 17 btw and to be honest I do feel more comfortable sharing things if you're my age or a little older.",
+      "true_label": "non-suicide",
+      "pred_label": "suicide",
+      "confidence": 0.9999030828475952,
+      "probs": [
+        0.9999030828475952,
+        9.694702021079138e-05
+      ]
+    },
+    {
+      "idx": 356,
+      "text": "HELP (possible self harm trigger warning) girlfriend manic period and major self harm Help me. My girlfriend goes through very aggressive anger moods whenever either one of us is upset. she literally hits her self and her head off things. most recently was as of me writing this. the issue is because of my depression stunted my sex drive. i m convinced she needs help but she refuses it. i don t know what to do i m scared. please help",
+      "true_label": "non-suicide",
+      "pred_label": "suicide",
+      "confidence": 0.9998637437820435,
+      "probs": [
+        0.9998637437820435,
+        0.0001362100156256929
+      ]
+    }
+  ],
+  "false_positives_false_alarms": [
+    {
+      "idx": 236,
+      "text": "most effective way to ki11 use1f im looking for quick, easy and affordable options & x200B ; anyone have any ideas?",
+      "true_label": "suicide",
+      "pred_label": "non-suicide",
+      "confidence": 0.9915761351585388,
+      "probs": [
+        0.008423835039138794,
+        0.9915761351585388
+      ]
+    },
+    {
+      "idx": 408,
+      "text": "I've oficaly got no more friends. I've lost all my friends the last one was today. I want to die I'm so tired of living. I've seen shit you wouldn't bealive and I don't have friends or a girl friend and when I come home I don't even have walls I'm living in my mum's lounge room lol. Which has made things very stressful.",
+      "true_label": "suicide",
+      "pred_label": "non-suicide",
+      "confidence": 0.9704527258872986,
+      "probs": [
+        0.02954728901386261,
+        0.9704527258872986
+      ]
+    },
+    {
+      "idx": 530,
+      "text": "So I told my mother I wanted to die. Thankfully, I'm one of the lucky ones who's parents aren't dickheads, so after a brief conversation (that I initiated) where I told them it could be out of guilt, when I asked if I could get a therapist assuming the problem continues, they said yes.",
+      "true_label": "suicide",
+      "pred_label": "non-suicide",
+      "confidence": 0.9984857439994812,
+      "probs": [
+        0.0015142932534217834,
+        0.9984857439994812
+      ]
+    }
+  ]
+}

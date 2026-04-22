@@ -1,0 +1,90 @@
+{
+  "false_negatives_missed_crises": [
+    {
+      "idx": 46,
+      "text": "I hope you all find peace and happiness Reading your posts over the months have at times helped me feel less alone. I hope that happiness finds its way into your lives",
+      "true_label": "Anxiety",
+      "pred_label": "bipolar",
+      "confidence": 0.8630210757255554,
+      "probs": [
+        0.015446009114384651,
+        0.8630210757255554,
+        0.017827296629548073,
+        0.025535108521580696,
+        0.07817050069570541
+      ]
+    },
+    {
+      "idx": 63,
+      "text": "Any tips for not feeling numb? I'm losing myself slowly and I can't find anything to be fun anymore. I just want to be happy again. All my college friends are back. Please someone help me.",
+      "true_label": "Anxiety",
+      "pred_label": "bipolar",
+      "confidence": 0.8976090550422668,
+      "probs": [
+        0.07044550776481628,
+        0.8976090550422668,
+        0.009659845381975174,
+        0.011997736059129238,
+        0.010287860408425331
+      ]
+    },
+    {
+      "idx": 70,
+      "text": "Just felt like writing I don't know if anyone is ever gonna read this but just typing it out helps a bit. I'm a 20 year old guy in my second year of university in Italy. I was always a bit depressed and suffered social anxiety my entire life but this period has been the worst. I've known my roommate for 2 years now and he's become one of my best friends. He met a girl about 6 months ago and we also became close friends. She quickly became one of the most important people of my life and I started falling in love with her. I felt as if I could talk to her for hours and that I was genuinely happy around her. 2 months ago she told me she felt the same way with me and things escalated from there. I kept seeing her more often, I just felt normal around her. Two weeks ago we were both drunk at a party and made out. I know I am a horrible person, I can't stop telling myself that every day. I told my roommate some days ago and while he said he understood he said he needed time to process everything. He dumped the girl and now won't even talk to me. I feel like shit. I miss my friend and not seeing the girl I love is killing me inside. I just want to go hug her but I can't. I already tried killing myself some days ago with 12 Perc's and alcohol but somehow survived. I can't concentrate on anything and am probably going to fail all my exams next week and waste more time of my life. I can't stop cutting myself to shift my mind from all this emotional pain and I just get high everyday with whatever i can find (alcohol, benzos, amphetamine, oxy) and walk around the city all night hating myself hoping a car hits me or something. Thanks to anyone who took the time to read this.",
+      "true_label": "Anxiety",
+      "pred_label": "bipolar",
+      "confidence": 0.796042799949646,
+      "probs": [
+        0.07673357427120209,
+        0.796042799949646,
+        0.022589409723877907,
+        0.004799211397767067,
+        0.09983499348163605
+      ]
+    }
+  ],
+  "false_positives_false_alarms": [
+    {
+      "idx": 6,
+      "text": "Biding time I've been doing nothing all day and I tried to kill myself last nigh and I go to the therapist at 3 so I am fucking dreading being sent to the goddamn hospital Maybe I can find something to kill myself with at the hospital Edit: found some broken glass in the classroom, gonna go to the bathroom and slice n' dice",
+      "true_label": "bipolar",
+      "pred_label": "Anxiety",
+      "confidence": 0.7860270738601685,
+      "probs": [
+        0.7860270738601685,
+        0.19685643911361694,
+        0.003761748783290386,
+        0.009820728562772274,
+        0.0035340518224984407
+      ]
+    },
+    {
+      "idx": 20,
+      "text": "Hey can anyone help All i can think of nowadays is how to kill myself. I don't really want to do it but i find getting closer every day. I don't know how to cope with life. Like I'm losing my mind over small things but it feels like they are the only things that matter. I feel like when i graduate high school I'm gonna be out of my safety net and everyone's gonna know what a loser i am (never been the social kind). So I feel like I've set myself a deadline for suicide and I'm scared i actually might follow through. I feel like a chump blabbering but it feels good to write it out.",
+      "true_label": "bipolar",
+      "pred_label": "Anxiety",
+      "confidence": 0.8939408659934998,
+      "probs": [
+        0.8939408659934998,
+        0.09176462143659592,
+        0.0022463961504399776,
+        0.004367127548903227,
+        0.00768091669306159
+      ]
+    },
+    {
+      "idx": 28,
+      "text": "Looking into dignitas to end my life Pretty much how the title goes! I've been living with constant pain for the last 12 years since my early teens. It's stopped me doing a lot even though I've pushed myself through. I've had multiple different surgeries, lobotomy, nerve block, pills, acupuncture etc etc nothing much has dumbed it down to a level I can LIVE with. For me that's the biggest thing right now. I don't feel like I have any friends, those I do consider friends live far away and have their own lives. The big thing for me is this new pioneering surgery, it's new here in the uk. Behind all the excitement though there's strong trepidation, I'm worried how it will go as it's new and invasive. If it doesn't work, or makes things worse, do I really want to LIVE with a pacemaker in my chest and a T.E.Ns stimulator in my head? For me this pain has already taken away a lot, I've had to leave university on a gap year for the procedure. It took me longer to get into uni. I don't get to go out much and so don't meet new people, & pain just leaves you depressed! It feels like whilst I watch everyone's lives expand, mind just shrinks smaller. I'm not sure I can keep this going, I'm pushing myself forward at this plan as a force to lead me away from alternative routes that probably wouldn't work.",
+      "true_label": "offmychest",
+      "pred_label": "Anxiety",
+      "confidence": 0.931114912033081,
+      "probs": [
+        0.931114912033081,
+        0.05697452649474144,
+        0.0016266490565612912,
+        0.0034167408011853695,
+        0.0068672276102006435
+      ]
+    }
+  ]
+}

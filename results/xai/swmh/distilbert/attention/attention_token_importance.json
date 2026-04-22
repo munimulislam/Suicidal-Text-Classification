@@ -1,0 +1,412 @@
+{
+  "Anxiety": [
+    {
+      "token": "alone",
+      "total_attention": 0.29359519481658936
+    },
+    {
+      "token": "horrible",
+      "total_attention": 0.25990450382232666
+    },
+    {
+      "token": "your",
+      "total_attention": 0.18014496564865112
+    },
+    {
+      "token": "numb",
+      "total_attention": 0.1722777932882309
+    },
+    {
+      "token": "you",
+      "total_attention": 0.16645110212266445
+    },
+    {
+      "token": "suicidal",
+      "total_attention": 0.15675517916679382
+    },
+    {
+      "token": "thoughts",
+      "total_attention": 0.1316286250948906
+    },
+    {
+      "token": "i",
+      "total_attention": 0.11155508831143379
+    },
+    {
+      "token": "this",
+      "total_attention": 0.10051793605089188
+    },
+    {
+      "token": ".",
+      "total_attention": 0.1000426895916462
+    },
+    {
+      "token": "dread",
+      "total_attention": 0.09759509563446045
+    },
+    {
+      "token": "wanting",
+      "total_attention": 0.08405675739049911
+    },
+    {
+      "token": "suicide",
+      "total_attention": 0.07966791838407516
+    },
+    {
+      "token": "die",
+      "total_attention": 0.0683235302567482
+    },
+    {
+      "token": "vent",
+      "total_attention": 0.06823397427797318
+    },
+    {
+      "token": "posts",
+      "total_attention": 0.06800676882266998
+    },
+    {
+      "token": "person",
+      "total_attention": 0.06591513752937317
+    },
+    {
+      "token": "ing",
+      "total_attention": 0.0655524954199791
+    },
+    {
+      "token": "wait",
+      "total_attention": 0.06445199996232986
+    },
+    {
+      "token": "to",
+      "total_attention": 0.06282791495323181
+    }
+  ],
+  "bipolar": [
+    {
+      "token": "going",
+      "total_attention": 0.30817048251628876
+    },
+    {
+      "token": "depression",
+      "total_attention": 0.2491796910762787
+    },
+    {
+      "token": "i",
+      "total_attention": 0.19101490266621113
+    },
+    {
+      "token": "me",
+      "total_attention": 0.1348509043455124
+    },
+    {
+      "token": ",",
+      "total_attention": 0.10055848211050034
+    },
+    {
+      "token": "hate",
+      "total_attention": 0.0897982269525528
+    },
+    {
+      "token": "press",
+      "total_attention": 0.08804058283567429
+    },
+    {
+      "token": "erect",
+      "total_attention": 0.06760066747665405
+    },
+    {
+      "token": "dysfunction",
+      "total_attention": 0.06724481284618378
+    },
+    {
+      "token": ".",
+      "total_attention": 0.06211648881435394
+    },
+    {
+      "token": "on",
+      "total_attention": 0.04985133931040764
+    },
+    {
+      "token": "permanent",
+      "total_attention": 0.04643375799059868
+    },
+    {
+      "token": "ile",
+      "total_attention": 0.04612647742033005
+    },
+    {
+      "token": "symptoms",
+      "total_attention": 0.03648274391889572
+    },
+    {
+      "token": "keeps",
+      "total_attention": 0.03189719095826149
+    },
+    {
+      "token": "anxiety",
+      "total_attention": 0.03187669441103935
+    },
+    {
+      "token": "people",
+      "total_attention": 0.03183840960264206
+    },
+    {
+      "token": "nurse",
+      "total_attention": 0.02619057148694992
+    },
+    {
+      "token": "psychiatrist",
+      "total_attention": 0.02454395592212677
+    },
+    {
+      "token": "ve",
+      "total_attention": 0.02307267114520073
+    }
+  ],
+  "depression": [
+    {
+      "token": "anxiety",
+      "total_attention": 0.2822951041162014
+    },
+    {
+      "token": "i",
+      "total_attention": 0.07466652616858482
+    },
+    {
+      "token": "day",
+      "total_attention": 0.07412312924861908
+    },
+    {
+      "token": "e",
+      "total_attention": 0.06731368787586689
+    },
+    {
+      "token": "don",
+      "total_attention": 0.05401470884680748
+    },
+    {
+      "token": "this",
+      "total_attention": 0.05309031158685684
+    },
+    {
+      "token": "ting",
+      "total_attention": 0.0526292584836483
+    },
+    {
+      "token": "nausea",
+      "total_attention": 0.048122238367795944
+    },
+    {
+      "token": "is",
+      "total_attention": 0.04168689250946045
+    },
+    {
+      "token": "or",
+      "total_attention": 0.04050799831748009
+    },
+    {
+      "token": "cula",
+      "total_attention": 0.038959309458732605
+    },
+    {
+      "token": "hate",
+      "total_attention": 0.03573591262102127
+    },
+    {
+      "token": "uncommon",
+      "total_attention": 0.032676395028829575
+    },
+    {
+      "token": "after",
+      "total_attention": 0.028921781107783318
+    },
+    {
+      "token": "ffe",
+      "total_attention": 0.025980999693274498
+    },
+    {
+      "token": "!",
+      "total_attention": 0.02541007101535797
+    },
+    {
+      "token": "that",
+      "total_attention": 0.025349736213684082
+    },
+    {
+      "token": "alone",
+      "total_attention": 0.024882718920707703
+    },
+    {
+      "token": "something",
+      "total_attention": 0.023022908717393875
+    },
+    {
+      "token": "panic",
+      "total_attention": 0.021007739007472992
+    }
+  ],
+  "SuicideWatch": [
+    {
+      "token": "bipolar",
+      "total_attention": 0.21480766125023365
+    },
+    {
+      "token": "disorder",
+      "total_attention": 0.15693644993007183
+    },
+    {
+      "token": "withdrawal",
+      "total_attention": 0.12432881444692612
+    },
+    {
+      "token": ".",
+      "total_attention": 0.10720212757587433
+    },
+    {
+      "token": "depression",
+      "total_attention": 0.10313165187835693
+    },
+    {
+      "token": "or",
+      "total_attention": 0.09241953492164612
+    },
+    {
+      "token": "birthday",
+      "total_attention": 0.08277980238199234
+    },
+    {
+      "token": "ffe",
+      "total_attention": 0.05305080860853195
+    },
+    {
+      "token": "nasty",
+      "total_attention": 0.05290975794196129
+    },
+    {
+      "token": "with",
+      "total_attention": 0.05274048075079918
+    },
+    {
+      "token": "blues",
+      "total_attention": 0.052365392446517944
+    },
+    {
+      "token": "e",
+      "total_attention": 0.048267632722854614
+    },
+    {
+      "token": "doing",
+      "total_attention": 0.0444878414273262
+    },
+    {
+      "token": "?",
+      "total_attention": 0.04345728084445
+    },
+    {
+      "token": "stable",
+      "total_attention": 0.04319135844707489
+    },
+    {
+      "token": "worse",
+      "total_attention": 0.03630965203046799
+    },
+    {
+      "token": "i",
+      "total_attention": 0.03554568812251091
+    },
+    {
+      "token": "treating",
+      "total_attention": 0.03371727094054222
+    },
+    {
+      "token": "still",
+      "total_attention": 0.022247113287448883
+    },
+    {
+      "token": "meditation",
+      "total_attention": 0.01987569034099579
+    }
+  ],
+  "offmychest": [
+    {
+      "token": "lost",
+      "total_attention": 0.087190642952919
+    },
+    {
+      "token": "liar",
+      "total_attention": 0.07058220356702805
+    },
+    {
+      "token": "en",
+      "total_attention": 0.06636346876621246
+    },
+    {
+      "token": "moral",
+      "total_attention": 0.06520102918148041
+    },
+    {
+      "token": "becoming",
+      "total_attention": 0.06253989785909653
+    },
+    {
+      "token": "stop",
+      "total_attention": 0.05781240016222
+    },
+    {
+      "token": "kids",
+      "total_attention": 0.05483364686369896
+    },
+    {
+      "token": "challenge",
+      "total_attention": 0.050038158893585205
+    },
+    {
+      "token": "the",
+      "total_attention": 0.04832190275192261
+    },
+    {
+      "token": "believes",
+      "total_attention": 0.04365096613764763
+    },
+    {
+      "token": "yp",
+      "total_attention": 0.042132552713155746
+    },
+    {
+      "token": "this",
+      "total_attention": 0.036262985318899155
+    },
+    {
+      "token": "money",
+      "total_attention": 0.02921922504901886
+    },
+    {
+      "token": "to",
+      "total_attention": 0.028712093830108643
+    },
+    {
+      "token": "christmas",
+      "total_attention": 0.026920728385448456
+    },
+    {
+      "token": "my",
+      "total_attention": 0.02573566697537899
+    },
+    {
+      "token": "feeling",
+      "total_attention": 0.024767693132162094
+    },
+    {
+      "token": "tell",
+      "total_attention": 0.02206052467226982
+    },
+    {
+      "token": "girl",
+      "total_attention": 0.02205308899283409
+    },
+    {
+      "token": "been",
+      "total_attention": 0.022011902183294296
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "suicide": [
+    {
+      "token": ".",
+      "total_importance": 0.4155659646845408
+    },
+    {
+      "token": "die",
+      "total_importance": 0.302170067242893
+    },
+    {
+      "token": "I",
+      "total_importance": 0.20535584608544774
+    },
+    {
+      "token": "me",
+      "total_importance": 0.1759771655582125
+    },
+    {
+      "token": "Classmate",
+      "total_importance": 0.175667902722645
+    },
+    {
+      "token": "got",
+      "total_importance": 0.15575936929105538
+    },
+    {
+      "token": "tonight",
+      "total_importance": 0.1465489994661766
+    },
+    {
+      "token": "fill",
+      "total_importance": 0.14167455092009126
+    },
+    {
+      "token": "is",
+      "total_importance": 0.12364714939130429
+    },
+    {
+      "token": "hope",
+      "total_importance": 0.12337475947528478
+    },
+    {
+      "token": "no",
+      "total_importance": 0.11603441272036635
+    },
+    {
+      "token": "'",
+      "total_importance": 0.10703072217872843
+    },
+    {
+      "token": "VID",
+      "total_importance": 0.1056912037013154
+    },
+    {
+      "token": "to",
+      "total_importance": 0.10165834875455988
+    },
+    {
+      "token": "needs",
+      "total_importance": 0.10120799314778803
+    },
+    {
+      "token": "z",
+      "total_importance": 0.08966069529305103
+    },
+    {
+      "token": "sleep",
+      "total_importance": 0.0850378044553855
+    },
+    {
+      "token": "self",
+      "total_importance": 0.08433584241083736
+    },
+    {
+      "token": "one",
+      "total_importance": 0.07869880435300142
+    },
+    {
+      "token": "movie",
+      "total_importance": 0.07835392380366102
+    }
+  ],
+  "non-suicide": [
+    {
+      "token": "no",
+      "total_importance": 0.24216752288142682
+    },
+    {
+      "token": "Ok",
+      "total_importance": 0.24166941318657742
+    },
+    {
+      "token": "this",
+      "total_importance": 0.2331255765684384
+    },
+    {
+      "token": "Exam",
+      "total_importance": 0.20335347457633665
+    },
+    {
+      "token": "struggling",
+      "total_importance": 0.17313314832768872
+    },
+    {
+      "token": "today",
+      "total_importance": 0.16784867297503211
+    },
+    {
+      "token": "so",
+      "total_importance": 0.16074734896418844
+    },
+    {
+      "token": "I",
+      "total_importance": 0.160012884842234
+    },
+    {
+      "token": "of",
+      "total_importance": 0.14084772762149475
+    },
+    {
+      "token": "is",
+      "total_importance": 0.12425618619370107
+    },
+    {
+      "token": "tunnel",
+      "total_importance": 0.11666798766236752
+    },
+    {
+      "token": "to",
+      "total_importance": 0.10210682968890071
+    },
+    {
+      "token": ",",
+      "total_importance": 0.10080193715283087
+    },
+    {
+      "token": "anymore",
+      "total_importance": 0.08574182931806021
+    },
+    {
+      "token": "'",
+      "total_importance": 0.0826067439069008
+    },
+    {
+      "token": "the",
+      "total_importance": 0.08233374256866714
+    },
+    {
+      "token": "why",
+      "total_importance": 0.08017060230486095
+    },
+    {
+      "token": "have",
+      "total_importance": 0.07677961103329653
+    },
+    {
+      "token": "point",
+      "total_importance": 0.07084006840162439
+    },
+    {
+      "token": ".",
+      "total_importance": 0.06706844263738329
+    }
+  ]
+}

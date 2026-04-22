@@ -1,0 +1,162 @@
+{
+  "suicide": [
+    {
+      "token": "fill",
+      "total_attention": 0.20098083838820457
+    },
+    {
+      "token": "*",
+      "total_attention": 0.18165994435548782
+    },
+    {
+      "token": "u",
+      "total_attention": 0.1801905632019043
+    },
+    {
+      "token": "are",
+      "total_attention": 0.12673315405845642
+    },
+    {
+      "token": "2",
+      "total_attention": 0.11087467148900032
+    },
+    {
+      "token": "er",
+      "total_attention": 0.10130152851343155
+    },
+    {
+      "token": "movie",
+      "total_attention": 0.06045106053352356
+    },
+    {
+      "token": "cs",
+      "total_attention": 0.059078436344861984
+    },
+    {
+      "token": "lost",
+      "total_attention": 0.05266231298446655
+    },
+    {
+      "token": "baby",
+      "total_attention": 0.04902386665344238
+    },
+    {
+      "token": "t",
+      "total_attention": 0.045949988067150116
+    },
+    {
+      "token": "girl",
+      "total_attention": 0.03661040961742401
+    },
+    {
+      "token": "life",
+      "total_attention": 0.03615259379148483
+    },
+    {
+      "token": "start",
+      "total_attention": 0.03512871265411377
+    },
+    {
+      "token": "g",
+      "total_attention": 0.033070892095565796
+    },
+    {
+      "token": "guys",
+      "total_attention": 0.0321587435901165
+    },
+    {
+      "token": "english",
+      "total_attention": 0.02941454015672207
+    },
+    {
+      "token": "me",
+      "total_attention": 0.028829094022512436
+    },
+    {
+      "token": "e",
+      "total_attention": 0.02561013400554657
+    }
+  ],
+  "non-suicide": [
+    {
+      "token": ".",
+      "total_attention": 1.4152763895690441
+    },
+    {
+      "token": ",",
+      "total_attention": 0.3120843879878521
+    },
+    {
+      "token": "tion",
+      "total_attention": 0.18802327662706375
+    },
+    {
+      "token": "i",
+      "total_attention": 0.11919502913951874
+    },
+    {
+      "token": "alo",
+      "total_attention": 0.11318879574537277
+    },
+    {
+      "token": "long",
+      "total_attention": 0.09198220074176788
+    },
+    {
+      "token": "exist",
+      "total_attention": 0.08682890236377716
+    },
+    {
+      "token": "idea",
+      "total_attention": 0.0534769669175148
+    },
+    {
+      "token": "but",
+      "total_attention": 0.049825843423604965
+    },
+    {
+      "token": "quota",
+      "total_attention": 0.049358271062374115
+    },
+    {
+      "token": "now",
+      "total_attention": 0.04579339921474457
+    },
+    {
+      "token": "go",
+      "total_attention": 0.04372899979352951
+    },
+    {
+      "token": "normal",
+      "total_attention": 0.04329847916960716
+    },
+    {
+      "token": "joke",
+      "total_attention": 0.04148757830262184
+    },
+    {
+      "token": "this",
+      "total_attention": 0.04086951166391373
+    },
+    {
+      "token": "bangs",
+      "total_attention": 0.037316203117370605
+    },
+    {
+      "token": "bounce",
+      "total_attention": 0.03492578864097595
+    },
+    {
+      "token": "broken",
+      "total_attention": 0.02571878395974636
+    },
+    {
+      "token": "repair",
+      "total_attention": 0.02570624276995659
+    },
+    {
+      "token": "(",
+      "total_attention": 0.02463705837726593
+    }
+  ]
+}

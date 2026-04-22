@@ -1,0 +1,100 @@
+
+[ANXIETY]
+  All 3 methods agree: alone, college, die, fun, happiness, happy, i, liver, losing, me
+  SHAP + LIME agree:   18, 9, a, advice, all, and, any, anybody, anymore, anyone
+  Top 15 by combined score:
+     1. .                    score=3.361 [SHAP, ATTN]
+     2. mood                 score=2.161 [SHAP, LIME, ATTN]
+     3. suicidal             score=2.113 [LIME, ATTN]
+     4. me                   score=2.050 [SHAP, LIME, ATTN]
+     5. happiness            score=2.002 [SHAP, LIME, ATTN]
+     6. i                    score=1.833 [SHAP, LIME, ATTN]
+     7. die                  score=1.398 [SHAP, LIME, ATTN]
+     8. my                   score=1.318 [SHAP, LIME]
+     9. happy                score=1.146 [SHAP, LIME, ATTN]
+    10. numb                 score=1.015 [SHAP, LIME, ATTN]
+    11. feel                 score=1.007 [SHAP, LIME]
+    12. and                  score=0.966 [SHAP, LIME]
+    13. to                   score=0.946 [SHAP, LIME]
+    14. tips                 score=0.902 [SHAP, LIME]
+    15. feeling              score=0.829 [SHAP, LIME]
+
+[BIPOLAR]
+  All 3 methods agree: am, better, depression, dysfunction, else, fucking, going, house, i, life
+  SHAP + LIME agree:   about, again, all, and, anyone, at, broken, but, can, classroom
+  Top 15 by combined score:
+     1. kill                 score=3.055 [SHAP, LIME]
+     2. .                    score=2.220 [SHAP, ATTN]
+     3. depression           score=1.690 [SHAP, LIME, ATTN]
+     4. press                score=1.505 [SHAP, ATTN]
+     5. suicide              score=1.420 [SHAP, LIME]
+     6. fucking              score=1.386 [SHAP, LIME, ATTN]
+     7. i                    score=1.211 [SHAP, LIME, ATTN]
+     8. dysfunction          score=1.194 [SHAP, LIME, ATTN]
+     9. life                 score=1.126 [SHAP, LIME, ATTN]
+    10. else                 score=0.944 [SHAP, LIME, ATTN]
+    11. myself               score=0.771 [SHAP, LIME]
+    12. walk                 score=0.684 [SHAP, LIME, ATTN]
+    13. nk                   score=0.592 [SHAP, ATTN]
+    14. erect                score=0.586 [SHAP, ATTN]
+    15. de                   score=0.575 [SHAP, ATTN]
+
+[DEPRESSION]
+  All 3 methods agree: anxiety, anxious, breathing, day, nausea, panic
+  SHAP + LIME agree:   a, about, abused, almost, and, around, at, away, back, can
+  Top 15 by combined score:
+     1. anxiety              score=6.794 [SHAP, LIME, ATTN]
+     2. .                    score=2.685 [SHAP, ATTN]
+     3. anxious              score=0.971 [SHAP, LIME, ATTN]
+     4. the                  score=0.696 [SHAP, LIME]
+     5. nausea               score=0.639 [SHAP, LIME, ATTN]
+     6. panic                score=0.557 [SHAP, LIME, ATTN]
+     7. with                 score=0.549 [SHAP, LIME]
+     8. t                    score=0.456 [SHAP, LIME]
+     9. day                  score=0.363 [SHAP, LIME, ATTN]
+    10. breathing            score=0.301 [SHAP, LIME, ATTN]
+    11. keep                 score=0.291 [SHAP, LIME]
+    12. and                  score=0.231 [SHAP, LIME]
+    13. going                score=0.226 [SHAP, LIME]
+    14. can                  score=0.217 [SHAP, LIME]
+    15. or                   score=0.209 [SHAP, ATTN]
+
+[SUICIDEWATCH]
+  All 3 methods agree: bipolar, depression, disorder, polar, stable
+  SHAP + LIME agree:   25, 32, a, all, bad, be, but, can, disappointment, first
+  Top 15 by combined score:
+     1. bipolar              score=7.962 [SHAP, LIME, ATTN]
+     2. .                    score=2.583 [SHAP, ATTN]
+     3. polar                score=2.316 [SHAP, LIME, ATTN]
+     4. la                   score=1.608 [SHAP, ATTN]
+     5. my                   score=1.496 [SHAP, LIME]
+     6. tu                   score=1.297 [SHAP, ATTN]
+     7. disorder             score=1.153 [SHAP, LIME, ATTN]
+     8. stable               score=0.984 [SHAP, LIME, ATTN]
+     9. med                  score=0.841 [SHAP, LIME]
+    10. depression           score=0.775 [SHAP, LIME, ATTN]
+    11. in                   score=0.412 [SHAP, LIME]
+    12. a                    score=0.405 [SHAP, LIME]
+    13. bi                   score=0.395 [LIME, ATTN]
+    14. life                 score=0.350 [SHAP, LIME]
+    15. da                   score=0.326 [SHAP, ATTN]
+
+[OFFMYCHEST]
+  All 3 methods agree: a, i, money, posting
+  SHAP + LIME agree:   and, but, cash, celebration, christmas, don, escape, exception, face, family
+  Top 15 by combined score:
+     1. i                    score=3.616 [SHAP, LIME, ATTN]
+     2. .                    score=3.259 [SHAP, ATTN]
+     3. girls                score=2.783 [SHAP, LIME]
+     4. a                    score=1.981 [SHAP, LIME, ATTN]
+     5. to                   score=1.620 [SHAP, LIME]
+     6. and                  score=1.598 [SHAP, LIME]
+     7. women                score=1.575 [SHAP, LIME]
+     8. posting              score=1.394 [SHAP, LIME, ATTN]
+     9. but                  score=1.326 [SHAP, LIME]
+    10. money                score=1.270 [SHAP, LIME, ATTN]
+    11. the                  score=1.215 [SHAP, LIME]
+    12. my                   score=1.197 [SHAP, LIME]
+    13. family               score=1.085 [SHAP, LIME]
+    14. this                 score=1.058 [SHAP, LIME]
+    15. in                   score=1.049 [SHAP, LIME]

@@ -1,0 +1,380 @@
+{
+  "Anxiety": [
+    {
+      "token": "i",
+      "total_attention": 0.6551987435668707
+    },
+    {
+      "token": "?",
+      "total_attention": 0.13334712386131287
+    },
+    {
+      "token": "me",
+      "total_attention": 0.11669136211276054
+    },
+    {
+      "token": "the",
+      "total_attention": 0.11023439094424248
+    },
+    {
+      "token": "anyone",
+      "total_attention": 0.10824756324291229
+    },
+    {
+      "token": "this",
+      "total_attention": 0.10750320367515087
+    },
+    {
+      "token": "need",
+      "total_attention": 0.10597531497478485
+    },
+    {
+      "token": "months",
+      "total_attention": 0.09157216548919678
+    },
+    {
+      "token": "only",
+      "total_attention": 0.08600594848394394
+    },
+    {
+      "token": "'m",
+      "total_attention": 0.08086759969592094
+    },
+    {
+      "token": "help",
+      "total_attention": 0.07934539020061493
+    },
+    {
+      "token": "have",
+      "total_attention": 0.0745273232460022
+    },
+    {
+      "token": "posts",
+      "total_attention": 0.06963770091533661
+    },
+    {
+      "token": "but",
+      "total_attention": 0.06945154070854187
+    },
+    {
+      "token": "myself",
+      "total_attention": 0.06520209461450577
+    },
+    {
+      "token": "any",
+      "total_attention": 0.06431491672992706
+    },
+    {
+      "token": "helped",
+      "total_attention": 0.06324511021375656
+    },
+    {
+      "token": "puppy",
+      "total_attention": 0.05637722462415695
+    },
+    {
+      "token": "twice",
+      "total_attention": 0.05361489579081535
+    },
+    {
+      "token": "peace",
+      "total_attention": 0.0475495308637619
+    }
+  ],
+  "bipolar": [
+    {
+      "token": "i",
+      "total_attention": 0.32223649322986603
+    },
+    {
+      "token": "my",
+      "total_attention": 0.18857526779174805
+    },
+    {
+      "token": "me",
+      "total_attention": 0.18271860480308533
+    },
+    {
+      "token": "happy",
+      "total_attention": 0.0808611810207367
+    },
+    {
+      "token": "fuck",
+      "total_attention": 0.061016712337732315
+    },
+    {
+      "token": "so",
+      "total_attention": 0.059925973415374756
+    },
+    {
+      "token": "feel",
+      "total_attention": 0.05895659327507019
+    },
+    {
+      "token": "scared",
+      "total_attention": 0.04920911230146885
+    },
+    {
+      "token": "and",
+      "total_attention": 0.045925840735435486
+    },
+    {
+      "token": "worried",
+      "total_attention": 0.04370341822504997
+    },
+    {
+      "token": "im",
+      "total_attention": 0.03843823820352554
+    },
+    {
+      "token": "crying",
+      "total_attention": 0.03525857254862785
+    },
+    {
+      "token": "??",
+      "total_attention": 0.03275012969970703
+    },
+    {
+      "token": "told",
+      "total_attention": 0.028884850442409515
+    },
+    {
+      "token": "you",
+      "total_attention": 0.02728870138525963
+    },
+    {
+      "token": "turn",
+      "total_attention": 0.02669481746852398
+    },
+    {
+      "token": "downhill",
+      "total_attention": 0.02503187209367752
+    }
+  ],
+  "depression": [
+    {
+      "token": "i",
+      "total_attention": 0.17090434581041336
+    },
+    {
+      "token": "absolutely",
+      "total_attention": 0.1472916603088379
+    },
+    {
+      "token": "hate",
+      "total_attention": 0.10003446042537689
+    },
+    {
+      "token": "my",
+      "total_attention": 0.08556988462805748
+    },
+    {
+      "token": "this",
+      "total_attention": 0.05902079865336418
+    },
+    {
+      "token": "don",
+      "total_attention": 0.054065391421318054
+    },
+    {
+      "token": "'t",
+      "total_attention": 0.05131201446056366
+    },
+    {
+      "token": "news",
+      "total_attention": 0.05023176223039627
+    },
+    {
+      "token": "me",
+      "total_attention": 0.04983407258987427
+    },
+    {
+      "token": "that",
+      "total_attention": 0.04310475289821625
+    },
+    {
+      "token": "anxiety",
+      "total_attention": 0.03278098627924919
+    },
+    {
+      "token": "bad",
+      "total_attention": 0.02931012585759163
+    },
+    {
+      "token": "leave",
+      "total_attention": 0.024746879935264587
+    },
+    {
+      "token": "for",
+      "total_attention": 0.02326798066496849
+    },
+    {
+      "token": "-",
+      "total_attention": 0.023090582340955734
+    },
+    {
+      "token": "..",
+      "total_attention": 0.022114669904112816
+    },
+    {
+      "token": "day",
+      "total_attention": 0.021241148933768272
+    },
+    {
+      "token": "do",
+      "total_attention": 0.017608843743801117
+    },
+    {
+      "token": "a",
+      "total_attention": 0.01724795624613762
+    },
+    {
+      "token": "of",
+      "total_attention": 0.016301888972520828
+    }
+  ],
+  "SuicideWatch": [
+    {
+      "token": "my",
+      "total_attention": 0.16399956494569778
+    },
+    {
+      "token": "ipolar",
+      "total_attention": 0.08276794850826263
+    },
+    {
+      "token": "polar",
+      "total_attention": 0.07457181811332703
+    },
+    {
+      "token": "feel",
+      "total_attention": 0.061288103461265564
+    },
+    {
+      "token": "is",
+      "total_attention": 0.06112464889883995
+    },
+    {
+      "token": "bipolar",
+      "total_attention": 0.06086534820497036
+    },
+    {
+      "token": "think",
+      "total_attention": 0.05351116508245468
+    },
+    {
+      "token": "wondering",
+      "total_attention": 0.048433348536491394
+    },
+    {
+      "token": "life",
+      "total_attention": 0.04446999728679657
+    },
+    {
+      "token": "i",
+      "total_attention": 0.043274594470858574
+    },
+    {
+      "token": "know",
+      "total_attention": 0.031670089811086655
+    },
+    {
+      "token": "blues",
+      "total_attention": 0.029827944934368134
+    },
+    {
+      "token": "disorder",
+      "total_attention": 0.02826964668929577
+    },
+    {
+      "token": "b",
+      "total_attention": 0.027027297765016556
+    },
+    {
+      "token": "myself",
+      "total_attention": 0.02626357041299343
+    },
+    {
+      "token": "coming",
+      "total_attention": 0.024718595668673515
+    },
+    {
+      "token": "bi",
+      "total_attention": 0.0243221428245306
+    },
+    {
+      "token": "question",
+      "total_attention": 0.024231508374214172
+    },
+    {
+      "token": "depressed",
+      "total_attention": 0.023159539327025414
+    },
+    {
+      "token": "depression",
+      "total_attention": 0.023114245384931564
+    }
+  ],
+  "offmychest": [
+    {
+      "token": "a",
+      "total_attention": 0.35547657683491707
+    },
+    {
+      "token": ".",
+      "total_attention": 0.2769671007990837
+    },
+    {
+      "token": "i",
+      "total_attention": 0.18213455379009247
+    },
+    {
+      "token": "lost",
+      "total_attention": 0.13182583451271057
+    },
+    {
+      "token": "posting",
+      "total_attention": 0.056791119277477264
+    },
+    {
+      "token": "this",
+      "total_attention": 0.05068860948085785
+    },
+    {
+      "token": "guess",
+      "total_attention": 0.048990413546562195
+    },
+    {
+      "token": "my",
+      "total_attention": 0.047361306846141815
+    },
+    {
+      "token": "the",
+      "total_attention": 0.04107658565044403
+    },
+    {
+      "token": "no",
+      "total_attention": 0.0401700995862484
+    },
+    {
+      "token": "seriously",
+      "total_attention": 0.03741491213440895
+    },
+    {
+      "token": "lie",
+      "total_attention": 0.03729986399412155
+    },
+    {
+      "token": "have",
+      "total_attention": 0.035883828997612
+    },
+    {
+      "token": "spirit",
+      "total_attention": 0.035279907286167145
+    },
+    {
+      "token": "tell",
+      "total_attention": 0.03318817541003227
+    }
+  ]
+}

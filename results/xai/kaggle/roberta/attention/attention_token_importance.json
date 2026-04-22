@@ -1,0 +1,166 @@
+{
+  "suicide": [
+    {
+      "token": "filler",
+      "total_attention": 0.16757483035326004
+    },
+    {
+      "token": "god",
+      "total_attention": 0.13025937974452972
+    },
+    {
+      "token": "lost",
+      "total_attention": 0.09078271687030792
+    },
+    {
+      "token": "fucking",
+      "total_attention": 0.08691121637821198
+    },
+    {
+      "token": "*",
+      "total_attention": 0.07584240287542343
+    },
+    {
+      "token": "movie",
+      "total_attention": 0.07200706005096436
+    },
+    {
+      "token": "i",
+      "total_attention": 0.0642017126083374
+    },
+    {
+      "token": "are",
+      "total_attention": 0.06330903619527817
+    },
+    {
+      "token": "u",
+      "total_attention": 0.061128176748752594
+    },
+    {
+      "token": "can",
+      "total_attention": 0.059123747050762177
+    },
+    {
+      "token": "z",
+      "total_attention": 0.05688602663576603
+    },
+    {
+      "token": "hate",
+      "total_attention": 0.052023954689502716
+    },
+    {
+      "token": "favorite",
+      "total_attention": 0.04338373988866806
+    },
+    {
+      "token": "rain",
+      "total_attention": 0.04272156581282616
+    },
+    {
+      "token": "game",
+      "total_attention": 0.04198700189590454
+    },
+    {
+      "token": "video",
+      "total_attention": 0.04111313074827194
+    },
+    {
+      "token": "risk",
+      "total_attention": 0.040915265679359436
+    },
+    {
+      "token": "life",
+      "total_attention": 0.040738966315984726
+    },
+    {
+      "token": "brain",
+      "total_attention": 0.03325489163398743
+    },
+    {
+      "token": "cells",
+      "total_attention": 0.03206679970026016
+    }
+  ],
+  "non-suicide": [
+    {
+      "token": "self",
+      "total_attention": 0.10135047137737274
+    },
+    {
+      "token": "subreddit",
+      "total_attention": 0.05235327407717705
+    },
+    {
+      "token": "manic",
+      "total_attention": 0.04184284061193466
+    },
+    {
+      "token": "living",
+      "total_attention": 0.040625594556331635
+    },
+    {
+      "token": "going",
+      "total_attention": 0.03492511063814163
+    },
+    {
+      "token": "situation",
+      "total_attention": 0.03491302579641342
+    },
+    {
+      "token": "kill",
+      "total_attention": 0.034757353365421295
+    },
+    {
+      "token": "nothing",
+      "total_attention": 0.034499868750572205
+    },
+    {
+      "token": ".",
+      "total_attention": 0.03349949745461345
+    },
+    {
+      "token": "harm",
+      "total_attention": 0.03049018234014511
+    },
+    {
+      "token": "for",
+      "total_attention": 0.030004847794771194
+    },
+    {
+      "token": "anger",
+      "total_attention": 0.029309887439012527
+    },
+    {
+      "token": "anymore",
+      "total_attention": 0.02892724797129631
+    },
+    {
+      "token": "friends",
+      "total_attention": 0.02855486050248146
+    },
+    {
+      "token": "80",
+      "total_attention": 0.028041522949934006
+    },
+    {
+      "token": "me",
+      "total_attention": 0.02718300372362137
+    },
+    {
+      "token": "period",
+      "total_attention": 0.026850316673517227
+    },
+    {
+      "token": "help",
+      "total_attention": 0.02580217272043228
+    },
+    {
+      "token": "girlfriend",
+      "total_attention": 0.025146886706352234
+    },
+    {
+      "token": "just",
+      "total_attention": 0.024890568107366562
+    }
+  ]
+}
