@@ -24,7 +24,7 @@ from config import (
     SWMH_PROCESSED,
     KAGGLE_LABELS,
     SWMH_LABELS,
-    CHECKPOINT_DIR,
+    CHECKPOINT_OUT_DIR,
     XAI_DIR,
     MAX_LEN,
 )
@@ -55,7 +55,7 @@ CONFIDENCE_THRESHOLD = 0.7
 
 
 def load_model_and_tokenizer(model_name: str, dataset_name: str, num_labels: int):
-    ckpt_dir = CHECKPOINT_DIR / f"{model_name}_{dataset_name}"
+    ckpt_dir = CHECKPOINT_IN_DIR / f"{model_name}_{dataset_name}"
     ckpt_path = ckpt_dir / "best_model.pt"
     transformer = TRANSFORMER_FROM_MODEL.get(model_name, "roberta")
     hf_model_id = MODEL_REGISTRY[transformer]

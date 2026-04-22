@@ -17,13 +17,15 @@ PROCESSED_DIR = DATA_DIR / "processed"
 
 OUT_DIR = Path("/kaggle/working/") if IS_KAGGLE else Path(__file__).parent.resolve()
 RESULTS_DIR = OUT_DIR / "results"
-CHECKPOINT_DIR = (
+CHECKPOINT_IN_DIR = (
     Path("/kaggle/input/models/mdmunimulislam/mh-crisis/pytorch/default/1/checkpoints")
     if IS_KAGGLE
     else OUT_DIR / "checkpoints"
 )
+CHECKPOINT_OUT_DIR = OUT_DIR / "checkpoints"
+
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
+CHECKPOINT_OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 KAGGLE_DATA_DIR = DATA_DIR / KAGGLE
 SWMH_DATA_DIR = DATA_DIR / SWMH
@@ -55,4 +57,5 @@ GLOVE_DIR = DATA_DIR / "glove"
 MAX_LEN = 256
 
 XAI_DIR = RESULTS_DIR / "xai"
+
 XAI_DIR.mkdir(parents=True, exist_ok=True)

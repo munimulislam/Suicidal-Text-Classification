@@ -24,7 +24,7 @@ from config import (
     KAGGLE_LABELS,
     SWMH_LABELS,
     RESULTS_DIR,
-    CHECKPOINT_DIR,
+    CHECKPOINT_OUT_DIR,
 )
 
 from utils.transformer_utils import (
@@ -69,7 +69,7 @@ def run_transformer(model_name: str, dataset_name: str):
 
     processed_dir = KAGGLE_PROCESSED if dataset_name == KAGGLE else SWMH_PROCESSED
     results_dir = RESULTS_DIR / dataset_name / model_name
-    ckpt_dir = CHECKPOINT_DIR / f"{model_name}_{dataset_name}"
+    ckpt_dir = CHECKPOINT_OUT_DIR / f"{model_name}_{dataset_name}"
     results_dir.mkdir(parents=True, exist_ok=True)
     ckpt_dir.mkdir(parents=True, exist_ok=True)
 
