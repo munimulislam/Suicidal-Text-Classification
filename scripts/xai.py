@@ -72,6 +72,7 @@ def load_model_and_tokenizer(model_name: str, dataset_name: str, num_labels: int
         hf_model_id,
         num_labels=num_labels,
         ignore_mismatched_sizes=True,
+        attn_implementation="eager",
     )
 
     model.load_state_dict(torch.load(ckpt_path, map_location=device))
