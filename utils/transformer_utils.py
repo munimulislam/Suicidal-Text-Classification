@@ -11,7 +11,6 @@ np.random.seed(SEED)
 torch.manual_seed(SEED)
 
 MODEL_REGISTRY = {
-    "bert": "bert-base-uncased",
     "distilbert": "distilbert-base-uncased",
     "mentalbert": "mental/mental-bert-base-uncased",
     "roberta": "roberta-base",

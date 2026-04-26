@@ -38,27 +38,13 @@ torch.manual_seed(SEED)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Device: {device}")
 
-TRANSFORMER_FROM_MODEL = {
-    "bert": "bert",
-    "distilbert": "distilbert",
-    "mentalbert": "mentalbert",
-    "roberta": "roberta",
-    "bert_cnn": "bert",
-    "bert_bilstm": "bert",
-    "mentalbert_cnn": "mentalbert",
-    "roberta_cnn": "roberta",
-    "roberta_bilstm": "roberta",
-    "mentalbert_cnn_bilstm": "mentalbert",
-}
-
 CONFIDENCE_THRESHOLD = 0.7
 
 
 def load_model_and_tokenizer(model_name: str, dataset_name: str, num_labels: int):
     ckpt_dir = CHECKPOINT_IN_DIR / f"{model_name}_{dataset_name}"
     ckpt_path = ckpt_dir / "best_model.pt"
-    transformer = TRANSFORMER_FROM_MODEL.get(model_name, "roberta")
-    hf_model_id = MODEL_REGISTRY[transformer]
+    hf_model_id = MODEL_REGISTRY.get(model_name)
 
     if not ckpt_path.exists():
         raise FileNotFoundError(
