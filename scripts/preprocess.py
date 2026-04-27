@@ -4,15 +4,27 @@ import html
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
+
 tqdm.pandas()
 import torch
 import argparse
 import random
 from sklearn.utils.class_weight import compute_class_weight
 from pathlib import Path
+
 sys.path.append(str(Path(__file__).resolve().parent.parent))
-from config import (SEED, KAGGLE, SWMH, KAGGLE_CSV, SWMH_TRAIN_CSV, SWMH_TEST_CSV, SWMH_VAL_CSV, PROCESSED_DIR, 
-                    KAGGLE_LABEL_MAP, SWMH_LABEL_MAP)
+from config import (
+    SEED,
+    KAGGLE,
+    SWMH,
+    KAGGLE_CSV,
+    SWMH_TRAIN_CSV,
+    SWMH_TEST_CSV,
+    SWMH_VAL_CSV,
+    PROCESSED_DIR,
+    KAGGLE_LABEL_MAP,
+    SWMH_LABEL_MAP,
+)
 
 URL_RE = re.compile(r"http\S+|www\.\S+|https\S+")
 MENTION_RE = re.compile(r"@\w+")
@@ -24,45 +36,52 @@ EMAIL_RE = re.compile(r"\S+@\S+")
 MULTISPACE = re.compile(r"\s+")
 NON_PRINT = re.compile(r"[^\x09\x0A\x0D\x20-\x7E]")
 REPEAT_CHR = re.compile(r"(.)\1{2,}")
-PLACEHOLDER_RE = re.compile(r'<(url|email|user)>', re.IGNORECASE)
+PLACEHOLDER_RE = re.compile(r"<(url|email|user)>", re.IGNORECASE)
 
-_STOPWORDS   = None
-_LEMMATIZER  = None
+_STOPWORDS = None
+_LEMMATIZER = None
+
+random.seed(SEED)
+np.random.seed(SEED)
+torch.manual_seed(SEED)
 
 
 def _init_nltk_lazy():
     global _STOPWORDS, _LEMMATIZER
 
-    if _STOPWORDS is None:
+    if _STOPWORDS is None or _LEMMATIZER is None:
         import nltk
         from nltk.corpus import stopwords
         from nltk.stem import WordNetLemmatizer
 
         for pkg in ("stopwords", "wordnet", "omw-1.4", "punkt", "punkt_tab"):
             try:
-                nltk.data.find(f"tokenizers/{pkg}" if "punkt" in pkg else f"corpora/{pkg}")
+                nltk.data.find(
+                    f"tokenizers/{pkg}" if "punkt" in pkg else f"corpora/{pkg}"
+                )
             except LookupError:
                 nltk.download(pkg, quiet=True)
-        _STOPWORDS   = set(stopwords.words("english"))
-        _LEMMATIZER  = WordNetLemmatizer()
+
+        _STOPWORDS = set(stopwords.words("english"))
+        _LEMMATIZER = WordNetLemmatizer()
 
     return _STOPWORDS, _LEMMATIZER
 
 
 def clean_text(text: str) -> str:
     if not isinstance(text, str):
-        return ''
+        return ""
 
-    t = html.unescape(text)                     
-    t = ARTEFACT_RE.sub("", t)                  
-    t = HTML_TAG_RE.sub("", t)                  
+    t = html.unescape(text)
+    t = ARTEFACT_RE.sub("", t)
+    t = HTML_TAG_RE.sub("", t)
     t = EMAIL_RE.sub(" <email> ", t)
-    t = URL_RE.sub(" <url> ", t)                
-    t = REDDIT_RE.sub(" <user> ", t)            
+    t = URL_RE.sub(" <url> ", t)
+    t = REDDIT_RE.sub(" <user> ", t)
     t = MENTION_RE.sub(" <user> ", t)
-    t = HASHTAG_RE.sub(r" \1 ", t)             
+    t = HASHTAG_RE.sub(r" \1 ", t)
     t = NON_PRINT.sub(" ", t)
-    t = REPEAT_CHR.sub(r"\1\1", t)             
+    t = REPEAT_CHR.sub(r"\1\1", t)
     t = MULTISPACE.sub(" ", t).strip()
 
     return t
@@ -70,18 +89,28 @@ def clean_text(text: str) -> str:
 
 def lemmatize_txt(text: str) -> str:
     if not isinstance(text, str):
-        return ''
-    
+        return ""
+
     stop, lem = _init_nltk_lazy()
+
+    if stop is None or lem is None:
+        return text
+
     from nltk.tokenize import word_tokenize
 
-    text = PLACEHOLDER_RE.sub('', text)
+    text = PLACEHOLDER_RE.sub("", text)
     tokens = word_tokenize(text.lower())
-    tokens = [lem.lemmatize(t) for t in tokens if t.isalpha() and t not in stop and len(t) > 2]
+    tokens = [
+        lem.lemmatize(t) for t in tokens if t.isalpha() and t not in stop and len(t) > 2
+    ]
 
     return " ".join(tokens)
-    
-def drop_empty_and_short(df: pd.DataFrame, text_col: str = "text", min_words: int = 3) -> pd.DataFrame:
+
+
+def drop_empty_and_short(
+    df: pd.DataFrame, text_col: str = "text", min_words: int = 3
+) -> pd.DataFrame:
+
     df = df.dropna(subset=[text_col]).copy()
     df[text_col] = df[text_col].astype(str)
     word_counts = df[text_col].str.split().str.len()
@@ -89,50 +118,66 @@ def drop_empty_and_short(df: pd.DataFrame, text_col: str = "text", min_words: in
 
     return df
 
-def drop_duplicates_clean(df: pd.DataFrame, text_col: str = "text", label_col: str = "label") -> pd.DataFrame:
+
+def drop_duplicates_clean(
+    df: pd.DataFrame, text_col: str = "text", label_col: str = "label"
+) -> pd.DataFrame:
+
     df = df.drop_duplicates(subset=[text_col, label_col])
     conflict = df.groupby(text_col)[label_col].nunique()
     bad_texts = set(conflict[conflict > 1].index)
 
     if bad_texts:
-        print(f"  Removing {len(bad_texts)} texts with conflicting labels")
+        print(f"Removing {len(bad_texts)} texts with conflicting labels")
 
     df = df[~df[text_col].isin(bad_texts)].reset_index(drop=True)
 
     return df
 
 
-def remove_leakage(train: pd.DataFrame, val: pd.DataFrame, test: pd.DataFrame, text_col: str = "text") -> tuple:
-    train_texts = set(train[text_col])
-    val_texts   = set(val[text_col])
+def remove_leakage(
+    train: pd.DataFrame, val: pd.DataFrame, test: pd.DataFrame, text_col: str = "text"
+) -> tuple:
 
-    val_before  = len(val)
+    train_texts = set(train[text_col])
+    val_texts = set(val[text_col])
+
+    val_before = len(val)
     test_before = len(test)
 
-    val  = val[~val[text_col].isin(train_texts)].reset_index(drop=True)
+    val = val[~val[text_col].isin(train_texts)].reset_index(drop=True)
     test = test[~test[text_col].isin(train_texts)].reset_index(drop=True)
     test = test[~test[text_col].isin(val_texts)].reset_index(drop=True)
 
-    print(f"  Leakage removed — val: {val_before}→{len(val)} "
-          f"test: {test_before}→{len(test)}")
-    
+    print(
+        f"Leakage removed — val: {val_before}→{len(val)} "
+        f"test: {test_before}→{len(test)}"
+    )
+
     return train, val, test
 
 
-def save_dataset(train: pd.DataFrame, val: pd.DataFrame, test: pd.DataFrame, dataset_name: str, weights_tensor) -> None:
-    out = PROCESSED_DIR / dataset_name
+def save_dataset(
+    train: pd.DataFrame,
+    val: pd.DataFrame,
+    test: pd.DataFrame,
+    dataset_name: str,
+    weights_tensor,
+) -> None:
+
+    out = PROCESSED_DIR / "new" / dataset_name
     out.mkdir(parents=True, exist_ok=True)
 
     train.to_csv(out / "train.csv", index=False)
-    val.to_csv(out / "val.csv",   index=False)
-    test.to_csv(out / "test.csv",  index=False)
+    val.to_csv(out / "val.csv", index=False)
+    test.to_csv(out / "test.csv", index=False)
 
     full = pd.concat([train, val, test], ignore_index=True)
     full.to_csv(out / "cleaned.csv", index=False)
 
     np.save(str(out / "class_weights.npy"), weights_tensor.numpy())
 
-    print(f"Saved → {out}")
+    print(f"Saved at: {out}")
     print(f"train={len(train)} | val={len(val)} | test={len(test)}")
 
 
@@ -160,22 +205,17 @@ def sanity_check(df: pd.DataFrame, dataset_name: str, n: int = 3):
 def get_class_weights(labels, device=None):
     classes = np.unique(labels)
 
-    weights = compute_class_weight(
-        class_weight="balanced",
-        classes=classes,
-        y=labels
-    )
+    weights = compute_class_weight(class_weight="balanced", classes=classes, y=labels)
 
-    weights_dict   = dict(zip(classes.tolist(), weights.tolist()))
+    weights_dict = dict(zip(classes.tolist(), weights.tolist()))
     weights_tensor = torch.tensor(
-        [weights_dict[i] for i in range(len(classes))],
-        dtype=torch.float
+        [weights_dict[i] for i in range(len(classes))], dtype=torch.float
     )
 
     if device is not None:
         weights_tensor = weights_tensor.to(device)
 
-    print(f"  Class weights: {weights_dict}")
+    print(f"Class weights: {weights_dict}")
 
     return weights_dict, weights_tensor
 
@@ -186,14 +226,14 @@ def process_kaggle():
     try:
         df = pd.read_csv(KAGGLE_CSV)
     except FileNotFoundError:
-        print(f"  ERROR: File not found at {KAGGLE_CSV}")
-        print("  Place suicide_watch.csv in data/kaggle/")
+        print(f"ERROR: File not found at {KAGGLE_CSV}")
+        print("Place suicide_watch.csv in data/kaggle/")
         return
-    
-    print(f"  Loaded {len(df):,} rows | columns: {list(df.columns)}")
+
+    print(f"Loaded {len(df):,} rows | columns: {list(df.columns)}")
 
     df = df.rename(columns={"class": "label_str"})
-    df = df[["text", "label_str"]]    
+    df = df[["text", "label_str"]]
 
     df["label"] = df["label_str"].map(KAGGLE_LABEL_MAP)
     unmapped = df["label"].isna().sum()
@@ -202,20 +242,22 @@ def process_kaggle():
         print(f"  WARNING: {unmapped} rows had unmapped labels — dropping them")
         df = df.dropna(subset=["label"])
 
-    print(f"  Label distribution:\n{df['label'].value_counts()}")
+    print(f"Label distribution:\n{df['label'].value_counts()}")
 
     before = len(df)
     df = drop_empty_and_short(df)
     df = drop_duplicates_clean(df)
-    print(f"  Removed empty & duplicates: {before - len(df):,} rows → {len(df):,} remaining")
+    print(
+        f"Removed empty & duplicates: {before - len(df):,} rows - {len(df):,} remaining"
+    )
 
-    df['text_clean'] = df['text'].progress_apply(clean_text)
-    df['text_lemmatized'] = df['text_clean'].progress_apply(lemmatize_txt)
+    df["text_clean"] = df["text"].progress_apply(clean_text)
+    df["text_lemmatized"] = df["text_clean"].progress_apply(lemmatize_txt)
 
     count = df["text_lemmatized"].str.split().str.len()
     before = len(df)
     df = df[count >= 5].reset_index(drop=True)
-    print(f"  Dropped {before - len(df)} rows with <5 tokens after cleaning")
+    print(f"Dropped {before - len(df)} rows with <5 tokens after cleaning")
 
     df["label"] = df["label"].astype(int)
 
@@ -243,16 +285,16 @@ def process_swmh():
         print(f"ERROR: {e}")
         print("Place SWMH train/val/test CSVs in data/swmh/")
         return
-    
-    TRAIN = 'train'
-    VAL = 'val'
-    TEST = 'test'
+
+    TRAIN = "train"
+    VAL = "val"
+    TEST = "test"
 
     for d in (train, val, test):
         d.columns = [c.strip().lower() for c in d.columns]
 
     print(f"Train columns: {list(train.columns)}")
-    print(f"Unique labels in train: {train['label'].unique()}")        
+    print(f"Unique labels in train: {train['label'].unique()}")
 
     for name, split in [(TRAIN, train), (VAL, val), (TEST, test)]:
         split["label_str"] = split["label"].copy()
@@ -268,38 +310,38 @@ def process_swmh():
         print(f"Label distribution:\n{split['label'].value_counts()}")
 
         before = len(split)
-        split  = drop_empty_and_short(split)
-        split  = drop_duplicates_clean(split)
+        split = drop_empty_and_short(split)
+        split = drop_duplicates_clean(split)
         print(f"  {name}: {before:,} → {len(split):,}")
 
         split["label"] = split["label"].astype(int)
 
-        if name == TRAIN: 
+        if name == TRAIN:
             train = split
-        elif name == VAL: 
-            val   = split
-        else:               
-            test  = split
+        elif name == VAL:
+            val = split
+        else:
+            test = split
 
     train, val, test = remove_leakage(train, val, test)
 
     for name, split in [(TRAIN, train), (VAL, val), (TEST, test)]:
         print(f"Cleaning {name}...")
-        split['text_clean'] = split['text'].progress_apply(clean_text)
-        split['text_lemmatized'] = split['text_clean'].progress_apply(lemmatize_txt)
+        split["text_clean"] = split["text"].progress_apply(clean_text)
+        split["text_lemmatized"] = split["text_clean"].progress_apply(lemmatize_txt)
 
         count = split["text_lemmatized"].str.split().str.len()
         before = len(split)
-        split  = split[count >= 5].reset_index(drop=True)
+        split = split[count >= 5].reset_index(drop=True)
 
         print(f"{name}: dropped {before - len(split)} short posts")
 
-        if name == TRAIN: 
+        if name == TRAIN:
             train = split
-        elif name == VAL: 
-            val   = split
-        else:               
-            test  = split
+        elif name == VAL:
+            val = split
+        else:
+            test = split
 
     train["label"] = train["label"].astype(int)
     val["label"] = val["label"].astype(int)
@@ -314,31 +356,27 @@ def process_swmh():
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description='Preprocess datasets for Mental Health Crisis Detection'
+        description="Preprocess datasets for Mental Health Crisis Detection"
     )
 
     parser.add_argument(
-        '--dataset',
+        "--dataset",
         type=str,
         choices=[KAGGLE, SWMH],
         default=None,
-        help='Dataset to process. If not provided, processes both.'
+        help="Dataset to process. If not provided, processes both.",
     )
 
     return parser.parse_args()
 
 
-if __name__ == "__main__":
-    random.seed(SEED)
-    np.random.seed(SEED)
-    torch.manual_seed(SEED)
-
+def main():
     args = parse_args()
 
-    if args.dataset == 'kaggle':
+    if args.dataset == KAGGLE:
         print("Processing Kaggle dataset...")
         process_kaggle()
-    elif args.dataset == 'swmh':
+    elif args.dataset == SWMH:
         print("Processing SWMH dataset...")
         process_swmh()
     else:
@@ -347,4 +385,7 @@ if __name__ == "__main__":
         process_swmh()
 
     print("\nPreprocessing complete.")
-    print(f"Outputs in: {PROCESSED_DIR}")
+
+
+if __name__ == "__main__":
+    main()
