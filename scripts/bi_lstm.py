@@ -27,7 +27,7 @@ from utils.dl_utils import (
     TextDataset,
     train_epoch,
     evaluate,
-    load_data,
+    load_tokenized_data_with_embedding,
 )
 from utils.metrics_utils import (
     print_metrics,
@@ -83,20 +83,12 @@ class DotProductAttention(nn.Module):
 
 class BiLSTMClassifier(nn.Module):
     """
-    BiLSTM + Attention text classifier.
-
     Architecture:
         Embedding (GloVe 100d, fine-tuned)
         → BiLSTM (2 layers, bidirectional)
         → Dot-Product Attention
         → Dropout
         → Linear → num_labels
-
-    BiLSTM captures sequential context in both directions —
-    forward (building towards a crisis statement) and backward
-    (understanding context after crisis keywords).
-
-    Attention then identifies which tokens matter most.
     """
 
     def __init__(self, vocab_size: int, embed_matrix: np.ndarray, num_labels: int):
@@ -130,9 +122,7 @@ class BiLSTMClassifier(nn.Module):
 
 
 def run_bilstm(dataset_name: str):
-    print(f"\n{'='*60}")
-    print(f"  BiLSTM + Attention — {dataset_name.upper()}")
-    print(f"{'='*60}")
+    print(f"BiLSTM + Attention — {dataset_name.upper()}")
 
     processed_dir = KAGGLE_PROCESSED if dataset_name == KAGGLE else SWMH_PROCESSED
     results_dir = RESULTS_DIR / dataset_name / "bilstm"
@@ -140,11 +130,9 @@ def run_bilstm(dataset_name: str):
     results_dir.mkdir(parents=True, exist_ok=True)
     ckpt_dir.mkdir(parents=True, exist_ok=True)
 
-    glove = load_glove_embeddings(EMBED_DIM)
-    vocab, embed = build_vocab_and_matrix(X_train_raw, glove, EMBED_DIM, MAX_VOCAB)
-    del glove
-
-    X_train, y_train, X_val, y_val, X_test, y_test = load_data(dataset_name, vocab)
+    X_train, y_train, X_val, y_val, X_test, y_test, embed = (
+        load_tokenized_data_with_embedding(dataset_name, EMBED_DIM, MAX_VOCAB)
+    )
 
     train_loader = DataLoader(
         TextDataset(X_train, y_train),
@@ -267,9 +255,13 @@ def parse_args():
     return parser.parse_args()
 
 
-if __name__ == "__main__":
+def main():
     args = parse_args()
     datasets = [args.dataset] if args.dataset else [KAGGLE, SWMH]
 
     for ds in datasets:
         run_bilstm(ds)
+
+
+if __name__ == "__main__":
+    main()

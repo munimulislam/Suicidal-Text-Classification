@@ -44,7 +44,7 @@ CONFIDENCE_THRESHOLD = 0.7
 def load_model_and_tokenizer(model_name: str, dataset_name: str, num_labels: int):
     ckpt_dir = CHECKPOINT_IN_DIR / f"{model_name}_{dataset_name}"
     ckpt_path = ckpt_dir / "best_model.pt"
-    hf_model_id = MODEL_REGISTRY.get(model_name)
+    hf_model_id = MODEL_REGISTRY[model_name]
 
     if not ckpt_path.exists():
         raise FileNotFoundError(
@@ -144,6 +144,7 @@ def get_sample_sets(
         # Correct predictions
         if true_label == pred_label:
             class_name = label_names[true_label]
+
             if len(correct_samples[class_name]) < n_per_class:
                 correct_samples[class_name].append(
                     {
@@ -440,7 +441,7 @@ def run_lime(
     with open(out_dir / "lime_token_importance.json", "w") as f:
         json.dump(lime_summary, f, indent=2)
 
-    print(f"LIME complete → {out_dir}")
+    print(f"LIME complete: {out_dir}")
 
     return lime_token_importance
 
@@ -531,7 +532,7 @@ def run_attention(
             ax.set_title(
                 f"Attention — {sample_type}\n"
                 f"True: {true_label} | Pred: {pred_label}\n"
-                f"⚠ Note: Attention shows model focus, not causal importance",
+                f"Attention shows model focus, not causal importance",
                 fontsize=9,
             )
             plt.tight_layout()
@@ -575,7 +576,6 @@ def run_attention(
             filename_prefix=f"false_negative_{i+1}",
         )
 
-    # Save summary
     attn_summary = {
         class_name: [
             {"token": tok, "total_attention": score}
@@ -583,10 +583,12 @@ def run_attention(
         ]
         for class_name, counter in attention_token_importance.items()
     }
+
     with open(out_dir / "attention_token_importance.json", "w") as f:
         json.dump(attn_summary, f, indent=2)
 
     print(f"Attention complete → {out_dir}")
+
     return attention_token_importance
 
 
@@ -612,6 +614,7 @@ def generate_clinical_insights(
         def normalise_counter(c: Counter) -> dict:
             if not c:
                 return {}
+
             max_val = max(c.values()) if c else 1.0
             return {k: v / max_val for k, v in c.items()}
 
@@ -630,7 +633,8 @@ def generate_clinical_insights(
             l = lime_norm.get(tok, 0)
             a = attn_norm.get(tok, 0)
             n_methods = sum([s > 0, l > 0, a > 0])  # how many methods agree
-            if n_methods >= 2:  # at least 2 methods must agree
+
+            if n_methods >= 2:
                 combined[tok] = (s + l + a) * n_methods  # reward agreement
 
         top_tokens = sorted(combined.items(), key=lambda x: x[1], reverse=True)[:15]
@@ -665,8 +669,8 @@ def generate_clinical_insights(
     with open(out_path, "w") as f:
         f.write("\n".join(lines))
 
-    # Also save as JSON for downstream use
     json_out = out_path.parent / "clinical_insights.json"
+
     with open(json_out, "w") as f:
         json.dump(
             {
@@ -678,7 +682,8 @@ def generate_clinical_insights(
         )
 
     print(f"\n  Clinical insights saved → {out_path}")
-    for line in lines[:30]:  # print first 30 lines
+
+    for line in lines[:30]:
         print(f"  {line}")
 
     return all_clinical_tokens
@@ -705,13 +710,6 @@ def run_xai(model_name: str, dataset_name: str):
 
     predict_fn = make_predict_fn(model, tokenizer)
 
-    # Sanity check
-    sample_probs = predict_fn(texts[:3])
-
-    for i, probs in enumerate(sample_probs):
-        pred = label_names[np.argmax(probs)]
-        print(f"[{i+1}] {pred} ({max(probs):.3f})")
-
     correct_samples, fn_cases, fp_cases = get_sample_sets(
         predict_fn, texts, labels, label_names, n_per_class=3
     )
@@ -729,7 +727,7 @@ def run_xai(model_name: str, dataset_name: str):
             indent=2,
         )
 
-    print(f"Misclassification cases saved → {misclass_path}")
+    print(f"Misclassification cases saved- {misclass_path}")
 
     # LIME
     lime_importance = run_lime(
@@ -763,8 +761,8 @@ def run_xai(model_name: str, dataset_name: str):
             out_dir=xai_out / "shap",
         )
     except Exception as e:
-        print(f"  SHAP failed: {e}")
-        print(f"  Continuing with LIME + Attention only")
+        print(f" SHAP failed: {e}")
+        print(f" Continuing with LIME + Attention only")
         shap_importance = {name: Counter() for name in label_names}
 
     generate_clinical_insights(
@@ -775,8 +773,8 @@ def run_xai(model_name: str, dataset_name: str):
         out_path=xai_out / "clinical_insights.txt",
     )
 
-    print(f"\nXAI complete — {model_name} on {dataset_name}")
-    print(f"All outputs → {xai_out}")
+    print(f"\nXAI complete - {model_name} on {dataset_name}")
+    print(f"All outputs: {xai_out}")
 
 
 def parse_args():
@@ -785,11 +783,17 @@ def parse_args():
     )
     parser.add_argument("--model", type=str, required=True)
     parser.add_argument("--dataset", type=str, choices=[KAGGLE, SWMH], default=None)
+
     return parser.parse_args()
 
 
-if __name__ == "__main__":
+def main():
     args = parse_args()
     datasets = [args.dataset] if args.dataset else [KAGGLE, SWMH]
+
     for d in datasets:
         run_xai(args.model, d)
+
+
+if __name__ == "__main__":
+    main()

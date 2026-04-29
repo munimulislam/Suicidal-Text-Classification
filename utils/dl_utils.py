@@ -16,6 +16,23 @@ random.seed(SEED)
 np.random.seed(SEED)
 torch.manual_seed(SEED)
 
+
+class TextDataset(Dataset):
+    """
+    PyTorch Dataset wrapping tokenised integer sequences and labels.
+    """
+
+    def __init__(self, sequences: np.ndarray, labels: np.ndarray):
+        self.sequences = torch.tensor(sequences, dtype=torch.long)
+        self.labels = torch.tensor(labels, dtype=torch.long)
+
+    def __len__(self):
+        return len(self.labels)
+
+    def __getitem__(self, idx):
+        return self.sequences[idx], self.labels[idx]
+
+
 def setup_glove(dim: int = 100) -> Path:
     glove_dir = Path(GLOVE_DIR)
     glove_dir.mkdir(parents=True, exist_ok=True)
@@ -24,14 +41,14 @@ def setup_glove(dim: int = 100) -> Path:
     zip_file = glove_dir / "glove.6B.zip"
 
     if txt_file.exists():
-        print(f"  GloVe found at {txt_file}")
+        print(f"GloVe found at {txt_file}")
         return txt_file
 
     if not zip_file.exists():
         __download_glove_zip(zip_file)
 
     __extract_glove_txt(zip_file, glove_dir, dim)
-    
+
     return txt_file
 
 
@@ -46,8 +63,8 @@ def __download_glove_zip(path: Path):
 
         if total_size > 0:
             pct = min(downloaded / total_size * 100, 100)
-            bar = '=' * int(pct // 2) + '||' * (50 - int(pct // 2))
-            print(f"\r  [{bar}] {pct:.1f}%", end='', flush=True)
+            bar = "=" * int(pct // 2) + "||" * (50 - int(pct // 2))
+            print(f"\r  [{bar}] {pct:.1f}%", end="", flush=True)
 
     urllib.request.urlretrieve(url, path, reporthook=_progress)
 
@@ -56,16 +73,15 @@ def __download_glove_zip(path: Path):
 
 
 def __extract_glove_txt(zip_path: Path, dest_path: Path, dim: int):
-    with zipfile.ZipFile(zip_path, 'r') as z:
+    with zipfile.ZipFile(zip_path, "r") as z:
         target = f"glove.6B.{dim}d.txt"
 
         if target not in z.namelist():
-            available = [n for n in z.namelist() if n.endswith('.txt')]
+            available = [n for n in z.namelist() if n.endswith(".txt")]
             raise ValueError(
-                f"glove.6B.{dim}d.txt not found in zip.\n"
-                f"Available: {available}"
+                f"glove.6B.{dim}d.txt not found in zip.\n" f"Available: {available}"
             )
-        
+
         z.extract(target, dest_path)
 
     print(f"Extraction Complete")
@@ -76,21 +92,23 @@ def load_glove_embeddings(embed_dim: int = 100) -> dict:
 
     embeddings = {}
 
-    with open(glove_path, 'r', encoding='utf-8') as f:
+    with open(glove_path, "r", encoding="utf-8") as f:
         for line in f:
             parts = line.strip().split()
             word = parts[0]
             vec = np.array(parts[1:], dtype=np.float32)
             embeddings[word] = vec
-    
+
     return embeddings
 
 
-def build_vocab_and_matrix(texts: np.ndarray, glove: dict, embed_dim: int, max_vocab: int) -> tuple:
+def build_vocab_and_matrix(
+    texts: np.ndarray, glove: dict, embed_dim: int, max_vocab: int
+) -> tuple:
     from collections import Counter
 
     counter = Counter()
-    vocab = {'<pad>': 0, '<unk>': 1}
+    vocab = {"<pad>": 0, "<unk>": 1}
 
     for text in texts:
         counter.update(str(text).lower().split())
@@ -115,12 +133,12 @@ def build_vocab_and_matrix(texts: np.ndarray, glove: dict, embed_dim: int, max_v
 
 
 def tokenise(texts: np.ndarray, vocab: dict, max_len: int = 256) -> np.ndarray:
-    unk_idx = vocab['<unk>']
-    pad_idx = vocab['<pad>']
+    unk_idx = vocab["<unk>"]
+    pad_idx = vocab["<pad>"]
     result = []
 
     for text in texts:
-        tokens  = str(text).lower().split()[:max_len]
+        tokens = str(text).lower().split()[:max_len]
         indices = [vocab.get(t, unk_idx) for t in tokens]
         # Right-pad to max_len
         indices += [pad_idx] * (max_len - len(indices))
@@ -129,57 +147,35 @@ def tokenise(texts: np.ndarray, vocab: dict, max_len: int = 256) -> np.ndarray:
     return np.array(result, dtype=np.int64)
 
 
-# ─────────────────────────────────────────────────────────────
-# Dataset
-# ─────────────────────────────────────────────────────────────
-
-class TextDataset(Dataset):
-    """
-    PyTorch Dataset wrapping tokenised integer sequences and labels.
-    """
-    def __init__(self, sequences: np.ndarray, labels: np.ndarray):
-        self.sequences = torch.tensor(sequences, dtype=torch.long)
-        self.labels = torch.tensor(labels, dtype=torch.long)
-
-    def __len__(self):
-        return len(self.labels)
-
-    def __getitem__(self, idx):
-        return self.sequences[idx], self.labels[idx]
-
-
-def load_data(dataset_name: str, vocab):
+def load_tokenized_data_with_embedding(dataset_name: str, embed_dim, vocab_size):
     ds_dir = KAGGLE_PROCESSED if dataset_name == KAGGLE else SWMH_PROCESSED
 
     train_df = pd.read_csv(ds_dir / "train.csv")
     val_df = pd.read_csv(ds_dir / "val.csv")
     test_df = pd.read_csv(ds_dir / "test.csv")
 
-    X_train_raw = train_df['text_lemmatized'].fillna('').astype(str).values
-    X_val_raw = val_df['text_lemmatized'].fillna('').astype(str).values
-    X_test_raw = test_df['text_lemmatized'].fillna('').astype(str).values
+    X_train_raw = train_df["text_lemmatized"].fillna("").astype(str).values
+    X_val_raw = val_df["text_lemmatized"].fillna("").astype(str).values
+    X_test_raw = test_df["text_lemmatized"].fillna("").astype(str).values
 
-    y_train = train_df['label'].values
-    y_val = val_df['label'].values
-    y_test = test_df['label'].values
+    glove = load_glove_embeddings(embed_dim)
+    vocab, embed = build_vocab_and_matrix(X_train_raw, glove, embed_dim, vocab_size)
+    del glove
 
-    num_labels = len(np.unique(y_train))
-    print(f"  Train: {len(train_df):,} | Val: {len(val_df):,} | Test: {len(test_df):,}")
-    print(f"  Classes: {num_labels} | Labels: {np.unique(y_train)}")
-
-    print("\n[3/6] Tokenising...")
     X_train = tokenise(X_train_raw, vocab)
     X_val = tokenise(X_val_raw, vocab)
     X_test = tokenise(X_test_raw, vocab)
 
-    return X_train, y_train, X_val, y_val, X_test, y_test
+    y_train = train_df["label"].values
+    y_val = val_df["label"].values
+    y_test = test_df["label"].values
+
+    return X_train, y_train, X_val, y_val, X_test, y_test, embed
 
 
-def train_epoch(model: nn.Module,
-                loader,
-                optimizer,
-                criterion,
-                device: torch.device) -> float:
+def train_epoch(
+    model: nn.Module, loader, optimizer, criterion, device: torch.device
+) -> float:
     """
     Run one training epoch.
 
@@ -193,7 +189,7 @@ def train_epoch(model: nn.Module,
         X, y = X.to(device), y.to(device)
         optimizer.zero_grad()
         logits = model(X)
-        loss   = criterion(logits, y)
+        loss = criterion(logits, y)
         loss.backward()
         # Gradient clipping — prevents exploding gradients in BiLSTM
         nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
@@ -203,11 +199,9 @@ def train_epoch(model: nn.Module,
     return total_loss / len(loader)
 
 
-def evaluate(model: nn.Module,
-             loader,
-             criterion,
-             num_labels: int,
-             device: torch.device) -> tuple:
+def evaluate(
+    model: nn.Module, loader, criterion, num_labels: int, device: torch.device
+) -> tuple:
     """
     Evaluate model on a DataLoader.
 

@@ -23,7 +23,7 @@ from config import (
     SWMH_LABELS,
 )
 from utils.dl_utils import (
-    load_data,
+    load_tokenized_data_with_embedding,
     load_glove_embeddings,
     build_vocab_and_matrix,
     TextDataset,
@@ -60,8 +60,6 @@ print(f"Device: {device}")
 
 class CNNClassifier(nn.Module):
     """
-    Standalone CNN text classifier.
-
     Architecture:
         Embedding (GloVe 100d, fine-tuned)
         → Conv1D × 3 (kernel sizes 2, 3, 4) with ReLU
@@ -69,11 +67,6 @@ class CNNClassifier(nn.Module):
         → Concatenate all branches
         → Dropout
         → Linear → num_labels
-
-    The three kernel sizes act as n-gram detectors:
-        kernel=2 → bigrams  ("kill myself", "want to")
-        kernel=3 → trigrams ("want to die")
-        kernel=4 → 4-grams  ("I want to die")
     """
 
     def __init__(self, vocab_size: int, embed_matrix: np.ndarray, num_labels: int):
@@ -81,11 +74,10 @@ class CNNClassifier(nn.Module):
 
         self.embedding = nn.Embedding.from_pretrained(
             torch.tensor(embed_matrix),
-            freeze=False,  # allow fine-tuning
+            freeze=False,
             padding_idx=0,  # <pad> gets zero gradient
         )
 
-        # One Conv1D per kernel size
         self.convs = nn.ModuleList(
             [
                 nn.Conv1d(in_channels=EMBED_DIM, out_channels=FILTERS, kernel_size=k)
@@ -94,7 +86,6 @@ class CNNClassifier(nn.Module):
         )
 
         self.dropout = nn.Dropout(DROPOUT)
-
         self.fc = nn.Linear(FILTERS * len(KERNEL_SIZES), num_labels)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -110,7 +101,6 @@ class CNNClassifier(nn.Module):
             c = c.squeeze(2)  # (batch, filters)
             pooled.append(c)
 
-        # Concatenate all kernel outputs
         cat = torch.cat(pooled, dim=1)  # (batch, filters * num_kernels)
         out = self.dropout(cat)
 
@@ -120,18 +110,15 @@ class CNNClassifier(nn.Module):
 def run_cnn(dataset_name: str):
     print(f"CNN — {dataset_name.upper()}")
 
-    # ── Paths ──────────────────────────────────────────────
     processed_dir = KAGGLE_PROCESSED if dataset_name == KAGGLE else SWMH_PROCESSED
     results_dir = RESULTS_DIR / dataset_name / "cnn"
     ckpt_dir = CHECKPOINT_OUT_DIR / f"cnn_{dataset_name}"
     results_dir.mkdir(parents=True, exist_ok=True)
     ckpt_dir.mkdir(parents=True, exist_ok=True)
 
-    glove = load_glove_embeddings(EMBED_DIM)
-    vocab, embed = build_vocab_and_matrix(X_train_raw, glove, EMBED_DIM, MAX_VOCAB)
-    del glove
-
-    X_train, y_train, X_val, y_val, X_test, y_test = load_data(dataset_name, vocab)
+    X_train, y_train, X_val, y_val, X_test, y_test, embed = (
+        load_tokenized_data_with_embedding(dataset_name, EMBED_DIM, MAX_VOCAB)
+    )
 
     train_loader = DataLoader(
         TextDataset(X_train, y_train),
@@ -156,7 +143,7 @@ def run_cnn(dataset_name: str):
     optimizer = Adam(model.parameters(), lr=LR)
 
     n_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    print(f"  Trainable parameters: {n_params:,}")
+    print(f"Trainable parameters: {n_params:,}")
 
     print("\nTraining...")
     best_val_f1 = 0.0
@@ -243,11 +230,6 @@ def run_cnn(dataset_name: str):
     return results
 
 
-# ─────────────────────────────────────────────────────────────
-# Entry Point
-# ─────────────────────────────────────────────────────────────
-
-
 def parse_args():
     parser = argparse.ArgumentParser(description="M03 — Standalone CNN text classifier")
     parser.add_argument(
@@ -260,9 +242,13 @@ def parse_args():
     return parser.parse_args()
 
 
-if __name__ == "__main__":
+def main():
     args = parse_args()
     datasets = [args.dataset] if args.dataset else [KAGGLE, SWMH]
 
     for ds in datasets:
         run_cnn(ds)
+
+
+if __name__ == "__main__":
+    main()
