@@ -777,18 +777,120 @@ def run_xai(model_name: str, dataset_name: str):
     print(f"All outputs: {xai_out}")
 
 
+def run_xai_single_text(model_name: str, dataset_name: str, text: str):
+    print(f"\n SINGLE TEXT XAI")
+    print(f"Text: {text}\n")
+
+    label_names = KAGGLE_LABELS if dataset_name == KAGGLE else SWMH_LABELS
+    num_labels = len(label_names)
+
+    out_dir = XAI_DIR / "single_text" / model_name
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    model, tokenizer, _ = load_model_and_tokenizer(model_name, dataset_name, num_labels)
+
+    predict_fn = make_predict_fn(model, tokenizer)
+
+    probs = predict_fn([text])[0]
+    pred_idx = int(np.argmax(probs))
+
+    print("Prediction:")
+    for i, p in enumerate(probs):
+        print(f"  {label_names[i]}: {p:.4f}")
+    print(f" Final: {label_names[pred_idx]}\n")
+
+    print(" Running LIME...")
+    explainer = LimeTextExplainer(class_names=label_names, random_state=SEED)
+
+    exp = explainer.explain_instance(
+        text,
+        predict_fn,
+        num_features=20,
+        num_samples=1000,
+        labels=[pred_idx],
+    )
+
+    lime_path = out_dir / "lime.html"
+    with open(lime_path, "w", encoding="utf-8") as f:
+        f.write(exp.as_html())
+
+    print(f" LIME saved → {lime_path}")
+
+    print(" Running SHAP...")
+    masker = shap.maskers.Text(tokenizer)
+    shap_explainer = shap.Explainer(predict_fn, masker, output_names=label_names)
+
+    sv = shap_explainer([text])
+
+    shap_html = shap.plots.text(sv, display=False)
+    shap_path = out_dir / "shap.html"
+
+    with open(lime_path, "w", encoding="utf-8") as f:
+        f.write(exp.as_html())
+
+    print(f" SHAP saved : {shap_path}")
+
+    print(" Running Attention...")
+
+    enc = tokenizer(
+        text,
+        max_length=MAX_LEN,
+        padding="max_length",
+        truncation=True,
+        return_tensors="pt",
+    )
+
+    input_ids = enc["input_ids"].to(device)
+    attention_mask = enc["attention_mask"].to(device)
+
+    if hasattr(model, "roberta"):
+        encoder = model.roberta
+    elif hasattr(model, "bert"):
+        encoder = model.bert
+    else:
+        encoder = model.base_model
+
+    with torch.no_grad():
+        outputs = encoder(
+            input_ids=input_ids,
+            attention_mask=attention_mask,
+            output_attentions=True,
+        )
+
+    tokens = tokenizer.convert_ids_to_tokens(input_ids[0])
+    seq_len = attention_mask[0].sum().item()
+
+    attn = outputs.attentions[-1][0].mean(dim=0)[0, :seq_len].cpu().numpy()
+
+    print("\n Top attention tokens:")
+    top_idx = np.argsort(attn)[-10:][::-1]
+    for i in top_idx:
+        print(f"  {tokens[i]} → {attn[i]:.4f}")
+
+    print("\n DONE")
+
+
 def parse_args():
     parser = argparse.ArgumentParser(
         description="XAI — SHAP (Text masker) + LIME + Attention"
     )
     parser.add_argument("--model", type=str, required=True)
     parser.add_argument("--dataset", type=str, choices=[KAGGLE, SWMH], default=None)
+    parser.add_argument(
+        "--text", type=str, default=None, help="Run XAI on a single input text"
+    )
 
     return parser.parse_args()
 
 
 def main():
     args = parse_args()
+
+    if args.text:
+        dataset = args.dataset or KAGGLE
+        run_xai_single_text(args.model, dataset, args.text)
+        return
+
     datasets = [args.dataset] if args.dataset else [KAGGLE, SWMH]
 
     for d in datasets:
