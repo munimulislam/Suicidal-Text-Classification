@@ -124,4 +124,4 @@ Upload processed CSVs as a Kaggle Dataset. Add it as input to your notebook.
 
 ## Deployment
 
-See the `deployment/` directory for the standalone FastAPI + HTMX web application.
+See the `https://github.com/munimulislam/MindGuard` web application.
